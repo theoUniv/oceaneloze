@@ -24,7 +24,7 @@ const APropos = () => {
                 {/* --- Colonne de l'image --- */}
                 <div className="apropos-image-wrapper">
                     <div className="apropos-image-bg"></div>
-                    <img src="/images/profil.jpg" alt="Photographe Océane Loze" className="apropos-img-modern" />
+                    <img src="/images/profil.webp" alt="Photographe Océane Loze" className="apropos-img-modern" />
                 </div>
 
                 {/* --- Colonne du texte --- */}

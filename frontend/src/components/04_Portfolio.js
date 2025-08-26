@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 
 // On enrichit la structure de nos données
 const portfolioItems = [
-    { type: 'image', src: '/images/portfolio-1.jpg', title: 'Douce Rêverie', cols: 2 },
-    { type: 'image', src: '/images/portfolio-2.jpg', title: 'Chrome & Caractère' },
+    { type: 'image', src: '/images/portfolio-1.webp', title: 'Douce Rêverie', cols: 2 },
+    { type: 'image', src: '/images/portfolio-2.webp', title: 'Chrome & Caractère' },
     { type: 'quote', text: "La beauté est dans les yeux de celui qui regarde." },
-    { type: 'image', src: '/images/portfolio-3.jpg', title: 'Palais d\'Été' },
-    { type: 'image', src: '/images/portfolio-4.jpg', title: 'Urbain & Sauvage', cols: 2 },
-    { type: 'image', src: '/images/portfolio-5.jpg', title: 'Reflets Mystiques' },
-    { type: 'image', src: '/images/portfolio-6.jpg', title: 'Pose Intemporelle' },
+    { type: 'image', src: '/images/portfolio-3.webp', title: 'Palais d\'Été' },
+    { type: 'image', src: '/images/portfolio-4.webp', title: 'Urbain & Sauvage', cols: 2 },
+    { type: 'image', src: '/images/portfolio-5.webp', title: 'Reflets Mystiques' },
+    { type: 'image', src: '/images/portfolio-6.webp', title: 'Pose Intemporelle' },
     { type: 'quote', text: "Capturer l'âme, pas seulement le sourire." },
 ];
 

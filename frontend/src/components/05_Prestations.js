@@ -3,7 +3,7 @@ import React from 'react';
 // On structure les données pour plus de clarté et de flexibilité
 const services = [
     {
-        imageSrc: '/images/prestation-studio.jpg',
+        imageSrc: '/images/prestation-studio.webp',
         title: 'Séance Studio',
         price: 'À partir de 150€',
         features: [
@@ -16,7 +16,7 @@ const services = [
         ctaLink: '#contact'
     },
     {
-        imageSrc: '/images/prestation-exterieur.jpg',
+        imageSrc: '/images/prestation-exterieur.webp',
         title: 'Séance Extérieur',
         price: 'À partir de 200€',
         features: [
@@ -29,7 +29,7 @@ const services = [
         ctaLink: '#contact'
     },
     {
-        imageSrc: '/images/prestation-evenement.jpg',
+        imageSrc: '/images/prestation-evenement.webp',
         title: 'Événementiel',
         price: 'Sur Devis',
         features: [

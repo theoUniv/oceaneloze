@@ -6,19 +6,19 @@ const testimonials = [
         quote: "Nous avons contacté Océane pour notre mariage, et ce fut la meilleure décision. Elle a su capturer chaque émotion avec une discrétion et un œil artistique qui nous ont bluffés. Les photos sont vivantes, lumineuses et racontent parfaitement notre histoire. Un immense merci pour ces souvenirs impérissables !",
         author: "Alex & Léa",
         service: "Prestation Mariage",
-        avatar: "/images/avatar-1.jpg"
+        avatar: "/images/avatar-1.webp"
     },
     {
         quote: "J'avais besoin de portraits professionnels pour mon activité et j'appréhendais un peu la séance. Océane a un talent incroyable pour mettre à l'aise. Elle guide avec douceur et professionnalisme. Le résultat est au-delà de mes espérances : des portraits qui ont du caractère et qui me ressemblent vraiment.",
         author: "Camille Durand",
         service: "Portrait Studio",
-        avatar: "/images/avatar-2.jpg"
+        avatar: "/images/avatar-2.webp"
     },
     {
         quote: "Une séance en famille en extérieur qui s'est transformée en un merveilleux moment de complicité, et Océane a su immortaliser tout ça ! Elle a joué avec la lumière naturelle de fin de journée pour un rendu doux et poétique. Nous sommes plus que ravis et nous avons enfin de belles photos de nous tous.",
         author: "La famille Martin",
         service: "Séance Famille Extérieur",
-        avatar: "/images/avatar-3.jpg"
+        avatar: "/images/avatar-3.webp"
     },
 ];
 
