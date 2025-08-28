@@ -24,31 +24,36 @@ const APropos = () => {
                 {/* --- Colonne de l'image --- */}
                 <div className="apropos-image-wrapper">
                     <div className="apropos-image-bg"></div>
-                    <img src="/images/profil.webp" alt="Photographe Océane Loze" className="apropos-img-modern" />
+                    <img src="/images/profil_new.webp" alt="Photographe Océane Loze" className="apropos-img-modern" />
                 </div>
 
                 {/* --- Colonne du texte --- */}
                 <div className="apropos-content-wrapper">
-                    <h2>Mon Approche</h2>
+                    <h2 class="adelia">Mon Approche</h2>
                     <p className="apropos-intro">
-                        Bienvenue dans mon univers. Je suis Océane Loze, une photographe passionnée par la lumière,
-                        les émotions et les histoires que chaque personne porte en elle.
+                        Ce que j'aime par-dessus tout, c'est capturer des instants vrais, des sourires spontanés, des regards complices. ces petits moments qui racontent bien plus qu'une pose.
+                        Après des études en art et en photographie, j'ai décidé de me lancer et de vivre de ma passion.
                     </p>
-                    <p>
-                        Ma démarche est douce et naturelle, je cherche à vous mettre à l'aise pour que votre véritable personnalité puisse rayonner. Mon objectif est de capturer l'authenticité et la beauté de chaque instant, de créer des souvenirs intemporels que vous chérirez pour toujours.
+                    <p className="apropos-intro">
+                        Je met tout en oeuvre pour que vous vous sentiez bien et que vos photos vous ressemblent.
                     </p>
 
                     {/* Section Philosophie */}
                     <div className="philosophy-section">
                         {philosophyPoints.map((point, index) => (
-                            <div className="philosophy-item" key={index}>
-                                <h3>{point.title}</h3>
-                                <p>{point.description}</p>
+                            <div className="philosophy-item " key={index}>
+                                <h3 class="adelia">{point.title}</h3>
+                                <p class="apropos-intro">{point.description}</p>
                             </div>
                         ))}
                     </div>
 
-                    <img src="/images/signature.png" alt="Signature d'Océane Loze" className="signature-img" />
+                    <img
+                        src="/images/signature.webp"
+                        alt="Signature d'Océane Loze"
+                        className="signature-img"
+                        style={{ width: '300px', height: 'auto' }} // augmente la largeur, garde la proportion
+                    />
                 </div>
             </div>
         </section>

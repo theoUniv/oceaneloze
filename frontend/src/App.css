@@ -11,6 +11,41 @@
   --color-white: #ffffff;
 }
 
+@font-face {
+  font-family: 'Meldyte';
+  src: url('../public/fonts/Meldyte.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'adelia';
+  src: url('../public/fonts/adelia.ttf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.meldyte {
+  font-size: 3rem;
+    /* environ 48px, tu peux changer */
+    line-height: 1.2;
+    /* pour pas que ça se colle */
+  font-family: 'Meldyte', sans-serif;;
+}
+
+.adelia {
+  font-size: 3rem;
+  /* environ 48px, tu peux changer */
+  line-height: 1.2;
+  /* pour pas que ça se colle */
+  font-family: 'adelia', sans-serif;
+  ;
+}
+
+.adelia-contact {
+  font-family: 'adelia', sans-serif;
+}
+
 /* --- Styles de Base --- */
 body {
   margin: 0;
@@ -19,6 +54,8 @@ body {
   color: var(--color-dark-brown);
   overflow-x: hidden;
 }
+
+
 
 h1,
 h2,
@@ -75,7 +112,7 @@ section {
 }
 
 .nav-logo {
-  font-family: var(--font-title);
+  /* font-family: var(--font-title); */
   font-size: 1.8rem;
   font-weight: 700;
   text-decoration: none;
@@ -628,6 +665,7 @@ section {
   margin-top: auto;
   /* Pousse le bouton en bas de la carte */
 }
+
 
 .prestation-cta:hover {
   background-color: var(--color-dark-brown);

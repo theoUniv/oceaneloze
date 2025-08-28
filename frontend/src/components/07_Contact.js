@@ -47,8 +47,14 @@ const Contact = () => {
             <div className="contact-container-modern">
                 {/* --- Panneau de Gauche : Formulaire --- */}
                 <div className="form-panel">
-                    <h2>Demande de devis</h2>
-                    <p className="form-subtitle">Remplissez ce formulaire pour me parler de votre projet. Je vous répondrai dans les plus brefs délais.</p>
+                    <h2 class="adelia-contact">Demande de devis</h2>
+                    <p
+                        className="form-subtitle"
+                        style={{ paddingTop: "20px" }}
+                    >
+                        Remplissez ce formulaire pour me parler de votre projet.
+                        Je vous répondrai dans les plus brefs délais.
+                    </p>
                     <form className="contact-form-modern" onSubmit={handleSubmit} noValidate>
                         <div className="form-group">
                             <input type="text" id="nom" name="nom" placeholder=" " value={formData.nom} onChange={handleChange} required />

@@ -34,7 +34,7 @@ const Navbar = () => {
 
     return (
         <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
-            <a href="#accueil" className="nav-logo">Océane Loze</a>
+            <a href="#accueil" className="nav-logo adelia">Océane Loze</a>
             <button className={`nav-toggle ${isOpen ? 'active' : ''}`} onClick={() => setIsOpen(!isOpen)}>
                 ☰
             </button>
@@ -43,7 +43,9 @@ const Navbar = () => {
                 <li><a href="#portfolio" onClick={() => setIsOpen(false)}>Portfolio</a></li>
                 <li><a href="#prestations" onClick={() => setIsOpen(false)}>Prestations</a></li>
                 <li><a href="#avis" onClick={() => setIsOpen(false)}>Avis</a></li>
+                <li><a href="https://www.jingoo.com/client/accessReport" onClick={() => setIsOpen(false)}>Accès Client</a></li>
                 <li><a href="#contact" onClick={() => setIsOpen(false)}>Contact</a></li>
+                
             </ul>
         </nav>
     );

@@ -3,12 +3,12 @@ import React from 'react';
 // On structure les données pour plus de clarté et de flexibilité
 const services = [
     {
-        imageSrc: '/images/prestation-studio.webp',
+        imageSrc: '/images/studio.webp',
         title: 'Séance Studio',
-        price: 'À partir de 150€',
+        price: 'À partir de 120€',
         features: [
             'Shooting de 1 heure',
-            '10 photos retouchées en HD',
+            '40 photos retouchées en HD',
             'Galerie en ligne privée',
             'Décors et fonds au choix',
         ],
@@ -16,12 +16,12 @@ const services = [
         ctaLink: '#contact'
     },
     {
-        imageSrc: '/images/prestation-exterieur.webp',
+        imageSrc: '/images/exterieur.webp',
         title: 'Séance Extérieur',
-        price: 'À partir de 200€',
+        price: 'À partir de 100€',
         features: [
-            'Shooting de 1h30',
-            '15 photos retouchées en HD',
+            'Shooting de 1h',
+            '40 photos retouchées en HD',
             'Galerie en ligne privée',
             'Lieu au choix',
         ],
@@ -29,8 +29,8 @@ const services = [
         ctaLink: '#contact'
     },
     {
-        imageSrc: '/images/prestation-evenement.webp',
-        title: 'Événementiel',
+        imageSrc: '/images/mariage.webp',
+        title: 'Evènementiel',
         price: 'Sur Devis',
         features: [
             'Mariage, baptême, entreprise...',
@@ -40,13 +40,49 @@ const services = [
         ],
         ctaText: 'Demander un devis',
         ctaLink: '#contact'
+    },
+        {
+        imageSrc: '/images/animaux.webp',
+            title: 'Shooting Animalier',
+        price: 'À partir de 170€',
+        features: [
+            'Séance disponible à Provins (77)',
+        ],
+        ctaText: 'Réserver cette séance',
+        ctaLink: '#contact'
+    },
+    {
+        imageSrc: '/images/Vehicule.webp',
+        title: 'Séance Auto/Moto',
+        price: 'À partir de 100€',
+        features: [
+            'Shooting de 1h30',
+            '30 photos retouchées en HD',
+            'Galerie en ligne privée',
+            'Lieu au choix',
+        ],
+        ctaText: 'Réserver cette séance',
+        ctaLink: '#contact'
+    },
+    {
+        imageSrc: '/images/contact.webp',
+        title: 'Restauration Photo/Tirage',
+        price: 'Sur devis',
+        features: [
+            'Tirage grand format',
+            'Tirage photo à partir de 0.40€',
+            'Restauration de photos anciennes à partir de 10€',
+            'Toile photo sur devis'
+        ],
+        ctaText: 'Réserver cette séance',
+        ctaLink: '#contact'
     }
 ];
 
 const Prestations = () => {
     return (
         <section id="prestations">
-            <h2>Mes Prestations</h2>
+            <h2 class="adelia">Mes Prestations</h2>
             <div className="prestations-container-modern">
                 {services.map((service, index) => (
                     <div className="prestation-card-modern" key={index}>

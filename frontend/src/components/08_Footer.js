@@ -1,22 +1,69 @@
 import React from 'react';
-// Importez les icônes si vous utilisez une librairie comme react-icons
-// import { FaInstagram, FaFacebook } from 'react-icons/fa';
+import { FaInstagram, FaFacebook, FaWhatsapp } from 'react-icons/fa';
 
 const Footer = () => {
     return (
-        <footer id="reseaux" className="footer">
-            <div className="reseaux-sociaux">
-                {/* Remplacez '#' par les vrais liens */}
-                <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                    {/* <FaInstagram /> */}
-                    Instagram
+        <footer
+            id="reseaux"
+            className="footer"
+            style={{
+                textAlign: 'center',
+                padding: '30px 0',
+                backgroundColor: '#fff', // fond blanc
+            }}
+        >
+            <div
+                className="reseaux-sociaux"
+                style={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    gap: '25px',
+                    marginBottom: '15px',
+                }}
+            >
+                <a
+                    href="https://www.instagram.com/fotocege/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Instagram"
+                    style={{
+                        fontSize: '36px',
+                        color: '#000', // icônes noires sur fond blanc
+                        transition: '0.3s',
+                    }}
+                >
+                    <FaInstagram />
                 </a>
-                <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                    {/* <FaFacebook /> */}
-                    Facebook
+                <a
+                    href="https://www.facebook.com/oceane.loze.73"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Facebook"
+                    style={{
+                        fontSize: '36px',
+                        color: '#000',
+                        transition: '0.3s',
+                    }}
+                >
+                    <FaFacebook />
+                </a>
+                <a
+                    href="https://wa.me/33608606434"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="WhatsApp"
+                    style={{
+                        fontSize: '36px',
+                        color: '#000',
+                        transition: '0.3s',
+                    }}
+                >
+                    <FaWhatsapp />
                 </a>
             </div>
-            <p>&copy; 2025 Océane Loze | Tous droits réservés.</p>
+            <p style={{ fontSize: '14px', color: '#555' }}>
+                &copy; 2025 Océane Loze | Tous droits réservés.
+            </p>
         </footer>
     );
 };

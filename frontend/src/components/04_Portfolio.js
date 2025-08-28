@@ -2,14 +2,16 @@ import React, { useState } from 'react';
 
 // On enrichit la structure de nos données
 const portfolioItems = [
-    { type: 'image', src: '/images/portfolio-1.webp', title: 'Douce Rêverie', cols: 2 },
+    { type: 'image', src: '/images/portfolio-1.webp', title: 'Douce Rêverie', cols: 1 },
     { type: 'image', src: '/images/portfolio-2.webp', title: 'Chrome & Caractère' },
-    { type: 'quote', text: "La beauté est dans les yeux de celui qui regarde." },
+    { type: 'quote', text: "Etre soi c'est déjà magnifique." },
     { type: 'image', src: '/images/portfolio-3.webp', title: 'Palais d\'Été' },
-    { type: 'image', src: '/images/portfolio-4.webp', title: 'Urbain & Sauvage', cols: 2 },
+    { type: 'image', src: '/images/portfolio-4.webp', title: 'Urbain & Sauvage', cols: 1 },
     { type: 'image', src: '/images/portfolio-5.webp', title: 'Reflets Mystiques' },
     { type: 'image', src: '/images/portfolio-6.webp', title: 'Pose Intemporelle' },
     { type: 'quote', text: "Capturer l'âme, pas seulement le sourire." },
+    { type: 'image', src: '/images/portfolio-7.webp', title: 'Reflets Mystiques' },
+    { type: 'image', src: '/images/portfolio-8.webp', title: 'Pose Intemporelle' },
 ];
 
 const Portfolio = () => {
@@ -29,7 +31,7 @@ const Portfolio = () => {
     return (
         <>
             <section id="portfolio">
-                <h2>Portfolio</h2>
+                <h2 class="adelia">Portfolio</h2>
                 <div className="portfolio-grid-modern">
                     {portfolioItems.map((item, index) => {
                         if (item.type === 'image') {

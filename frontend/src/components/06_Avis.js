@@ -3,22 +3,34 @@ import React, { useState, useEffect } from 'react';
 // Nouvelle structure de données enrichie
 const testimonials = [
     {
-        quote: "Nous avons contacté Océane pour notre mariage, et ce fut la meilleure décision. Elle a su capturer chaque émotion avec une discrétion et un œil artistique qui nous ont bluffés. Les photos sont vivantes, lumineuses et racontent parfaitement notre histoire. Un immense merci pour ces souvenirs impérissables !",
-        author: "Alex & Léa",
-        service: "Prestation Mariage",
-        avatar: "/images/avatar-1.webp"
+        quote: "Océane possède un regard rare, qui sait capturer bien plus que des images : elle fige des émotions, des instants suspendus. Chaque photo raconte une histoire, avec une sensibilité qui témoigne d’un véritable talent. C’est aussi une personne profondément humaine, l’écoute et patiente.Elle crée un climat de confiance naturel, qui se voit dans l’authenticité de ses clichés. À travers l’objectif, elle ne photographie pas seulement ce qu’elle voit, mais ce qu’elle ressent. Océane ne se contente pas de photographier, elle est investie du début à la fin. Travailler avec elle, c’est faire l’expérience d’une délicatesse et d’un regard sincère.C’est une personne passionnée et vous ne regretterez pas de l’avoir choisie !!",
+        author: "Maëlle",
+        service: "Shooting exterieur",
+        avatar: "/images/maelle.webp"
     },
     {
-        quote: "J'avais besoin de portraits professionnels pour mon activité et j'appréhendais un peu la séance. Océane a un talent incroyable pour mettre à l'aise. Elle guide avec douceur et professionnalisme. Le résultat est au-delà de mes espérances : des portraits qui ont du caractère et qui me ressemblent vraiment.",
-        author: "Camille Durand",
+        quote: "J’ai eu la chance de faire plusieurs shootings avec Océane et à chaque fois l’expérience a été incroyable. Elle est non seulement très professionnelle, mais aussi passionnée et investie dans son travail. Elle sait mettre à l’aise, créer une ambiance agréable et bienveillante, ce qui permet de se sentir en confiance devant l’objectif. Le résultat est toujours magnifique : des photos de qualité qui reflètent parfaitement l’instant et l’émotion. Je la recommande les yeux fermés !",
+        author: "Mathilde",
         service: "Portrait Studio",
-        avatar: "/images/avatar-2.webp"
+        avatar: "/images/mathilde.webp"
     },
     {
-        quote: "Une séance en famille en extérieur qui s'est transformée en un merveilleux moment de complicité, et Océane a su immortaliser tout ça ! Elle a joué avec la lumière naturelle de fin de journée pour un rendu doux et poétique. Nous sommes plus que ravis et nous avons enfin de belles photos de nous tous.",
-        author: "La famille Martin",
-        service: "Séance Famille Extérieur",
-        avatar: "/images/avatar-3.webp"
+        quote: "J'ai adoré réalisé mes shootings a tes côtés c'était une trop bonne expérience tu m'as mis tellement en confiance et à fond dans dedans que je voulais plus m'arrêter ! Tu fais un travail de fou t'es super douée je suis impatient d'avoir le résultat du shotting à chaque fois parce que je sais que ça va être une pépite grâce à toi ! Continu comme ça ! Vraiment n'hesitez même pas une seconde à vous lancer avec Oceane elle est trop good vibe, et vous ne serrez jamais dessus avec elle attendez vous a prendre confiance en vous et à kiffer votre moment !",
+        author: "Elie Tardy",
+        service: "Séance Extérieur",
+        avatar: "/images/eli.webp"
+    },
+    {
+        quote: "J’ai eu la chance de rencontrer Océane un peu sur un coup de tête, en lui partageant mon histoire et mon envie de réaliser un shooting qui me tenait à cœur. Elle m’a tout de suite proposé de faire ce projet à Étretat, avec des idées magnifiques et une sensibilité incroyable. Au-delà de son talent, Océane est d’une gentillesse rare, qui met immédiatement en confiance. Ce shooting restera une expérience unique et précieuse pour moi, autant par le résultat des photos que par le moment partagé.",
+        author: "Sacha",
+        service: "Séance Extérieur",
+        avatar: "/images/sacha.webp"
+    },
+    {
+        quote: "Superbe photographe, elle nous mes alaise directement et c’est très agréable. Au moment des séances si nous avons pas d’idée toujours elle en trouvé t je trouve sa super. Les photos sont tellement bien prise la qualité est superbe. Je recommande fortement elle fait du super boulot 🥰",
+        author: "Chloé",
+        service: "Séance Grossesse",
+        avatar: "/images/cloe.webp"
     },
 ];
 
@@ -36,7 +48,7 @@ const Avis = () => {
 
     return (
         <section id="avis">
-            <h2>Ils m'ont fait confiance</h2>
+            <h2 class="adelia">Ils m'ont fait confiance</h2>
             <div className="testimonial-slider">
                 {/* Le conteneur qui va bouger */}
                 <div className="testimonial-track" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
