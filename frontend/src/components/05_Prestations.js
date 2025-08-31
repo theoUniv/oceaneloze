@@ -3,7 +3,7 @@ import React from 'react';
 // On structure les données pour plus de clarté et de flexibilité
 const services = [
     {
-        imageSrc: '/images/studio.webp',
+        imageSrc: '/images/Studio.webp',
         title: 'Séance Studio',
         price: 'À partir de 120€',
         features: [
