@@ -3,9 +3,9 @@ import React, { useState, useEffect } from 'react';
 // Nouvelle structure de données enrichie
 const testimonials = [
     {
-        quote: "Océane possède un regard rare, qui sait capturer bien plus que des images : elle fige des émotions, des instants suspendus. Chaque photo raconte une histoire, avec une sensibilité qui témoigne d’un véritable talent. C’est aussi une personne profondément humaine, l’écoute et patiente.Elle crée un climat de confiance naturel, qui se voit dans l’authenticité de ses clichés. À travers l’objectif, elle ne photographie pas seulement ce qu’elle voit, mais ce qu’elle ressent. Océane ne se contente pas de photographier, elle est investie du début à la fin. Travailler avec elle, c’est faire l’expérience d’une délicatesse et d’un regard sincère.C’est une personne passionnée et vous ne regretterez pas de l’avoir choisie !!",
+        quote: "Océane possède un regard rare, qui sait capturer bien plus que des images : elle fige des émotions, des instants suspendus. Chaque photo raconte une histoire, avec une sensibilité qui témoigne d’un véritable talent. C’est aussi une personne profondément humaine, à l’écoute et patiente. Elle créer un climat de confiance naturel, qui se voit dans l’authenticité de ses clichés. À travers l’objectif, elle ne photographie pas seulement ce qu’elle voit, mais ce qu’elle ressent. Océane ne se contente pas de photographier, elle est investie du début à la fin. Travailler avec elle, c’est faire l’expérience d’une délicatesse et d’un regard sincère. C’est une personne passionnée et vous ne regretterez pas de l’avoir choisie !!",
         author: "Maëlle",
-        service: "Shooting exterieur",
+        service: "Séance Animalière",
         avatar: "/images/maelle.webp"
     },
     {
@@ -15,19 +15,19 @@ const testimonials = [
         avatar: "/images/mathilde.webp"
     },
     {
-        quote: "J'ai adoré réalisé mes shootings a tes côtés c'était une trop bonne expérience tu m'as mis tellement en confiance et à fond dans dedans que je voulais plus m'arrêter ! Tu fais un travail de fou t'es super douée je suis impatient d'avoir le résultat du shotting à chaque fois parce que je sais que ça va être une pépite grâce à toi ! Continu comme ça ! Vraiment n'hesitez même pas une seconde à vous lancer avec Oceane elle est trop good vibe, et vous ne serrez jamais dessus avec elle attendez vous a prendre confiance en vous et à kiffer votre moment !",
+        quote: "J'ai adoré réaliser mes shootings a tes côtés c'était une très bonne expérience tu m'as mis tellement en confiance et à fond dedans que je voulais plus m'arrêter ! Tu fais un travail de fou t'es super douée je suis impatient d'avoir le résultat du shooting à chaque fois parce que je sais que ça va être une pépite grâce à toi ! Continu comme ça ! Vraiment n'hesitez même pas une seconde à vous lancer avec Oceane elle est trop good vibe, et vous ne serrez jamais déçus avec elle attendez vous a prendre confiance en vous et à kiffer votre moment !",
         author: "Elie Tardy",
         service: "Séance Extérieur",
         avatar: "/images/eli.webp"
     },
     {
-        quote: "J’ai eu la chance de rencontrer Océane un peu sur un coup de tête, en lui partageant mon histoire et mon envie de réaliser un shooting qui me tenait à cœur. Elle m’a tout de suite proposé de faire ce projet à Étretat, avec des idées magnifiques et une sensibilité incroyable. Au-delà de son talent, Océane est d’une gentillesse rare, qui met immédiatement en confiance. Ce shooting restera une expérience unique et précieuse pour moi, autant par le résultat des photos que par le moment partagé.",
+        quote: "J’ai eu la chance de rencontrer Océane un peu sur un coup de tête, en lui partageant mon histoire et mon envie de réaliser un shooting qui me tenait à cœur. Elle m’a tout de suite proposée de faire ce projet à Étretat, avec des idées magnifiques et une sensibilité incroyable. Au-delà de son talent, Océane est d’une gentillesse rare, qui met immédiatement en confiance. Ce shooting restera une expérience unique et précieuse pour moi, autant par le résultat des photos que par le moment partagé.",
         author: "Sacha",
         service: "Séance Extérieur",
         avatar: "/images/sacha.webp"
     },
     {
-        quote: "Superbe photographe, elle nous mes alaise directement et c’est très agréable. Au moment des séances si nous avons pas d’idée toujours elle en trouvé t je trouve sa super. Les photos sont tellement bien prise la qualité est superbe. Je recommande fortement elle fait du super boulot 🥰",
+        quote: "Superbe photographe, elle nous met à l'aise directement et c’est très agréable. Au moment des séances si nous n'avons pas d’idées, elle en trouvera. Les photos sont tellement bien prise la qualité est superbe. Je recommande fortement elle fait du super boulot 🥰",
         author: "Chloé",
         service: "Séance Grossesse",
         avatar: "/images/cloe.webp"

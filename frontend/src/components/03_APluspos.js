@@ -31,7 +31,7 @@ const APropos = () => {
                 <div className="apropos-content-wrapper">
                     <h2 class="adelia">Mon Approche</h2>
                     <p className="apropos-intro">
-                        Ce que j'aime par-dessus tout, c'est capturer des instants vrais, des sourires spontanés, des regards complices. ces petits moments qui racontent bien plus qu'une pose.
+                        Ce que j'aime par-dessus tout, c'est capturer des instants vrais, des sourires spontanés, des regards complices. Ces petits moments qui racontent bien plus qu'une pose.
                         Après des études en art et en photographie, j'ai décidé de me lancer et de vivre de ma passion.
                     </p>
                     <p className="apropos-intro">

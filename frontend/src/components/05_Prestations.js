@@ -43,7 +43,7 @@ const services = [
     },
         {
         imageSrc: '/images/animaux.webp',
-            title: 'Shooting Animalier',
+            title: 'Séance Animalière',
         price: 'À partir de 170€',
         features: [
             'Séance disponible à Provins (77)',

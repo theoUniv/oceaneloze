@@ -66,7 +66,7 @@ const Accueil = () => {
             {/* Le contenu textuel reste au premier plan */}
             <div className="accueil-content">
                 <h1 class="adelia">Océane Loze</h1>
-                <p>Photographe Capturant l'Instant</p>
+                <p>Photographe Capturant l'Authenticité</p>
             </div>
         </section>
     );
