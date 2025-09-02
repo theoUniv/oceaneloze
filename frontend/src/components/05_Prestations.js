@@ -60,7 +60,7 @@ const services = [
         price: 'À partir de 100€',
         features: [
             'Séance de 1h30 avec votre véhicule',
-            '30 photos retouchées en HD',
+            '40 photos en HD',
             'Galerie en ligne privée',
             'Lieu au choix',
         ],
