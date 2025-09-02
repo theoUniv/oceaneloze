@@ -35,7 +35,7 @@ const services = [
         price: 'Sur Devis',
         features: [
             'Mariage, anniversaire, entreprise...',
-            'Reportage photo complet sur devis',
+            'Reportage photo complet',
         ],
         ctaText: 'Demander un devis',
         ctaLink: '#contact'
