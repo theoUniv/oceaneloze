@@ -35,7 +35,7 @@ const services = [
         price: 'Sur Devis',
         features: [
             'Mariage, anniversaire, entreprise...',
-            'Reportage photo complet',
+            'Reportage photo',
         ],
         ctaText: 'Demander un devis',
         ctaLink: '#contact'
@@ -45,7 +45,7 @@ const services = [
             title: 'Séance Animalière',
         price: 'À partir de 170€',
             features: [
-            'Séance d\'une heure',
+            'Séance de 1h',
             'Chevaux mis à disposition (Provins 77)',
             'Avec votre animal (à partir de 100€)',
             '40 Photos en HD',
