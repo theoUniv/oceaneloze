@@ -41,7 +41,7 @@ const Avis = () => {
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
-        }, 7000); // On augmente un peu le temps pour permettre la lecture
+        }, 15000); // On augmente un peu le temps pour permettre la lecture
 
         return () => clearInterval(interval);
     }, []);

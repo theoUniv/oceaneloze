@@ -7,8 +7,9 @@ const services = [
         title: 'Séance Studio',
         price: 'À partir de 120€',
         features: [
-            'Shooting de 1 heure',
-            '40 photos retouchées en HD',
+            'Séance de 1 heure',
+            'Studio disponible à Meaux (77)',
+            '40 photos en HD',
             'Galerie en ligne privée',
             'Décors et fonds au choix',
         ],
@@ -20,8 +21,8 @@ const services = [
         title: 'Séance Extérieur',
         price: 'À partir de 100€',
         features: [
-            'Shooting de 1h',
-            '40 photos retouchées en HD',
+            'Séance de 1h',
+            '40 photos en HD',
             'Galerie en ligne privée',
             'Lieu au choix',
         ],
@@ -33,10 +34,8 @@ const services = [
         title: 'Evènementiel',
         price: 'Sur Devis',
         features: [
-            'Mariage, baptême, entreprise...',
-            'Reportage photo complet',
-            'Photos triées et retouchées',
-            'Discutons de votre projet',
+            'Mariage, anniversaire, entreprise...',
+            'Reportage photo complet sur devis',
         ],
         ctaText: 'Demander un devis',
         ctaLink: '#contact'
@@ -45,8 +44,12 @@ const services = [
         imageSrc: '/images/animaux.webp',
             title: 'Séance Animalière',
         price: 'À partir de 170€',
-        features: [
-            'Séance disponible à Provins (77)',
+            features: [
+            'Séance d\'une heure',
+            'Chevaux mis à disposition (Provins 77)',
+            'Avec votre animal (à partir de 100€)',
+            '40 Photos en HD',
+            'Galerie en ligne privée'
         ],
         ctaText: 'Réserver cette séance',
         ctaLink: '#contact'
@@ -56,7 +59,7 @@ const services = [
         title: 'Séance Auto/Moto',
         price: 'À partir de 100€',
         features: [
-            'Shooting de 1h30',
+            'Séance de 1h30 avec votre véhicule',
             '30 photos retouchées en HD',
             'Galerie en ligne privée',
             'Lieu au choix',
@@ -72,7 +75,7 @@ const services = [
             'Tirage grand format',
             'Tirage photo à partir de 0.40€',
             'Restauration de photos anciennes à partir de 10€',
-            'Toile photo sur devis'
+            'Toile photo'
         ],
         ctaText: 'Réserver cette séance',
         ctaLink: '#contact'
