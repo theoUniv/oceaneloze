@@ -12,14 +12,6 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-// Connexion à MongoDB
-mongoose.connect(process.env.MONGO_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-})
-    .then(() => console.log('Connexion à MongoDB réussie !'))
-    .catch(() => console.log('Connexion à MongoDB échouée !'));
-
 // Routes
 app.use('/api/contact', contactRoutes);
 
