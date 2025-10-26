@@ -30,7 +30,7 @@ const Contact = () => {
             creneau: dateSelectionnee.toLocaleDateString('fr-FR', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })
         };
 
-        axios.post('http://localhost:8080/api/contact', finalData)
+        axios.post('https://oceaneloze.com/api/contact', finalData)
             .then(response => {
                 setFormMessage({ type: 'success', text: response.data.message });
                 setFormData({ nom: '', email: '', telephone: '', prestation: 'Studio', message: '' });
