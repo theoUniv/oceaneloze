@@ -1,11 +1,10 @@
 const express = require('express');
 const router = express.Router();
-
-// On garde juste les fonctions de mail
+const Contact = require('../models/Contact');
 const { sendBookingEmail, sendConfirmationEmail } = require('../services/mailService');
 
-// @route   POST api/contact
-// @desc    Envoie un e-mail de notification et un e-mail de confirmation (sans sauvegarde en base)
+// @route   POST /api/contact
+// @desc    Enregistre en base + envoie les e-mails
 // @access  Public
 router.post('/', async (req, res) => {
     try {
@@ -18,20 +17,24 @@ router.post('/', async (req, res) => {
             message: req.body.message
         };
 
-        // Envoie les e-mails sans rien stocker en base
+        // ✅ Sauvegarde dans MongoDB
+        const newContact = new Contact(contactData);
+        await newContact.save();
+
+        // ✅ Envoie les e-mails
         await Promise.all([
-            sendBookingEmail(contactData),      // E-mail pour toi
-            sendConfirmationEmail(contactData)  // E-mail pour le client
+            sendBookingEmail(contactData),
+            sendConfirmationEmail(contactData)
         ]);
 
         res.json({
             success: true,
-            message: 'Votre demande a bien été envoyée !',
+            message: 'Votre demande a bien été enregistrée et envoyée !',
             contact: contactData
         });
 
     } catch (err) {
-        console.error('Erreur lors du traitement du contact :', err);
+        console.error('❌ Erreur lors du traitement du contact :', err);
         res.status(400).json({
             success: false,
             message: 'Une erreur est survenue lors du traitement de la demande.',
