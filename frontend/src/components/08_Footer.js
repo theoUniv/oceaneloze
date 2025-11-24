@@ -10,7 +10,7 @@ const Footer = () => {
                 textAlign: 'center',
                 padding: '30px 0',
                 backgroundColor: '#fff',
-                borderTop: '1px solid #eee' // Petit séparateur subtil
+                borderTop: '1px solid #eee'
             }}
         >
             {/* --- Réseaux Sociaux --- */}
@@ -58,19 +58,32 @@ const Footer = () => {
                     SIRET : 977 785 039 00016
                 </p>
 
-                {/* Liens vers les pages légales (à créer) */}
-                <div style={{ marginTop: '10px', display: 'flex', justifyContent: 'center', gap: '15px', flexWrap: 'wrap' }}>
-                    <a href="/mentions-legales" style={{ color: '#555', textDecoration: 'none' }}>Mentions Légales</a>
+                <div
+                    style={{
+                        marginTop: '10px',
+                        display: 'flex',
+                        justifyContent: 'center',
+                        gap: '15px',
+                        flexWrap: 'wrap'
+                    }}
+                >
+                    <a href="/mentions-legales" style={{ color: '#555', textDecoration: 'none' }}>
+                        Mentions Légales
+                    </a>
                     <span>|</span>
-                    <a href="/cgv" style={{ color: '#555', textDecoration: 'none' }}>CGV</a>
+                    <a href="/cgv" style={{ color: '#555', textDecoration: 'none' }}>
+                        CGV
+                    </a>
                     <span>|</span>
-                    <a href="/politique-confidentialite" style={{ color: '#555', textDecoration: 'none' }}>Politique de confidentialité</a>
+                    <a href="/politique-confidentialite" style={{ color: '#555', textDecoration: 'none' }}>
+                        Politique de confidentialité
+                    </a>
                 </div>
             </div>
 
             {/* --- Copyright --- */}
             <p style={{ fontSize: '13px', color: '#888', marginTop: '10px' }}>
-                &copy; 2025 Océane Loze | Tous droits réservés.
+                &copy; {new Date().getFullYear()} Océane Loze | Tous droits réservés.
             </p>
         </footer>
     );
