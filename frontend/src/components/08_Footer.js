@@ -52,6 +52,12 @@ const Footer = () => {
                 </a>
             </div>
 
+            {/* --- SIRET --- */}
+            <p style={{ fontSize: '14px', color: '#555', marginBottom: '10px' }}>
+                SIRET : 977 785 039 00016
+            </p>
+
+            {/* --- Lien téléchargement CGU --- */}
             <div
                 style={{
                     marginTop: '10px',
@@ -62,14 +68,13 @@ const Footer = () => {
                 }}
             >
                 <a
-                    href="/CGU.txt" // place ton fichier CGU.txt dans le dossier public
+                    href="/CGU.txt"
                     download
                     style={{ color: '#555', textDecoration: 'none' }}
                 >
                     Télécharger les CGU
                 </a>
             </div>
-
 
             {/* --- Copyright --- */}
             <p style={{ fontSize: '13px', color: '#888', marginTop: '10px' }}>
