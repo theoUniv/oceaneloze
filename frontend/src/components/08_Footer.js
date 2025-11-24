@@ -52,34 +52,24 @@ const Footer = () => {
                 </a>
             </div>
 
-            {/* --- Informations Légales & Liens --- */}
-            <div style={{ marginBottom: '15px', fontSize: '14px', color: '#555' }}>
-                <p style={{ margin: '5px 0' }}>
-                    SIRET : 977 785 039 00016
-                </p>
-
-                <div
-                    style={{
-                        marginTop: '10px',
-                        display: 'flex',
-                        justifyContent: 'center',
-                        gap: '15px',
-                        flexWrap: 'wrap'
-                    }}
+            <div
+                style={{
+                    marginTop: '10px',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    gap: '15px',
+                    flexWrap: 'wrap'
+                }}
+            >
+                <a
+                    href="/CGU.txt" // place ton fichier CGU.txt dans le dossier public
+                    download
+                    style={{ color: '#555', textDecoration: 'none' }}
                 >
-                    <a href="/mentions-legales" style={{ color: '#555', textDecoration: 'none' }}>
-                        Mentions Légales
-                    </a>
-                    <span>|</span>
-                    <a href="/cgv" style={{ color: '#555', textDecoration: 'none' }}>
-                        CGV
-                    </a>
-                    <span>|</span>
-                    <a href="/politique-confidentialite" style={{ color: '#555', textDecoration: 'none' }}>
-                        Politique de confidentialité
-                    </a>
-                </div>
+                    Télécharger les CGU
+                </a>
             </div>
+
 
             {/* --- Copyright --- */}
             <p style={{ fontSize: '13px', color: '#888', marginTop: '10px' }}>

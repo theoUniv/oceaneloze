@@ -8,6 +8,7 @@ import Prestations from './components/05_Prestations';
 import Avis from './components/06_Avis';
 import Contact from './components/07_Contact';
 import Footer from './components/08_Footer';
+import MentionsEtCGV from './components/MentionsEtCGV';
 
 function App() {
   return (
