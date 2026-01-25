@@ -40,11 +40,11 @@ const services = [
         ctaText: 'Demander un devis',
         ctaLink: '#contact'
     },
-        {
+    {
         imageSrc: '/images/animaux.webp',
-            title: 'Séance Animalière',
+        title: 'Séance Animalière',
         price: 'À partir de 170€',
-            features: [
+        features: [
             'Séance de 1h',
             'Chevaux mis à disposition (Provins 77)',
             'Avec votre animal (à partir de 100€)',
@@ -59,10 +59,11 @@ const services = [
         title: 'Séance Auto/Moto',
         price: 'À partir de 100€',
         features: [
-            'Séance de 1h30 avec votre véhicule',
+            'Séance de 1h avec votre véhicule',
             '40 photos en HD',
             'Galerie en ligne privée',
             'Lieu au choix',
+            '*une moto ou un véhicule peuvent être mis à disposition pour le shooting ( 65€ en plus de la prestation - lieu en fonction du véhicule )',
         ],
         ctaText: 'Réserver cette séance',
         ctaLink: '#contact'

@@ -13,6 +13,18 @@ const carouselImages = [
     {
         src: '/images/carousel-3.webp',
         alt: "Femme en robe blanche posant devant la fontaine du Palais Longchamp à Marseille",
+    },
+    {
+        src: '/images/enfant.webp',
+        alt: "Photographie d'enfant",
+    },
+    {
+        src: '/images/karcher.webp',
+        alt: "Photographie artistique Karcher",
+    },
+    {
+        src: '/images/miss.webp',
+        alt: "Photographie de miss",
     }
 ];
 

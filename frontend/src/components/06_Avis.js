@@ -15,10 +15,10 @@ const testimonials = [
         avatar: "/images/mathilde.webp"
     },
     {
-        quote: "J'ai adoré réaliser mes shootings a tes côtés c'était une très bonne expérience tu m'as mis tellement en confiance et à fond dedans que je voulais plus m'arrêter ! Tu fais un travail de fou t'es super douée je suis impatient d'avoir le résultat du shooting à chaque fois parce que je sais que ça va être une pépite grâce à toi ! Continu comme ça ! Vraiment n'hesitez même pas une seconde à vous lancer avec Oceane elle est trop good vibe, et vous ne serrez jamais déçus avec elle attendez vous a prendre confiance en vous et à kiffer votre moment !",
-        author: "Elie Tardy",
+        quote: "Océane a su me mettre en avant dans une très belle série de photos dans un musée. Elle a su me mettre à l’aise et s’adapter à mes demandes facilement. Le résultat était épatant. Je vous recommande d’y aller les yeux fermés. 😊",
+        author: "Vic",
         service: "Séance Extérieur",
-        avatar: "/images/eli.webp"
+        avatar: "/images/Vic.webp"
     },
     {
         quote: "J’ai eu la chance de rencontrer Océane un peu sur un coup de tête, en lui partageant mon histoire et mon envie de réaliser un shooting qui me tenait à cœur. Elle m’a tout de suite proposée de faire ce projet à Étretat, avec des idées magnifiques et une sensibilité incroyable. Au-delà de son talent, Océane est d’une gentillesse rare, qui met immédiatement en confiance. Ce shooting restera une expérience unique et précieuse pour moi, autant par le résultat des photos que par le moment partagé.",
@@ -27,10 +27,10 @@ const testimonials = [
         avatar: "/images/sacha.webp"
     },
     {
-        quote: "Superbe photographe, elle nous met à l'aise directement et c’est très agréable. Au moment des séances si nous n'avons pas d’idées, elle en trouvera. Les photos sont tellement bien prise la qualité est superbe. Je recommande fortement elle fait du super boulot 🥰",
-        author: "Chloé",
-        service: "Séance Grossesse",
-        avatar: "/images/cloe.webp"
+        quote: "Un immense merci à Océane pour ce magnifique shooting mère-fille. Elle a su nous mettre à l’aise dès les premières minutes, avec beaucoup de douceur, de patience et de bienveillance. Le moment a été rempli d’émotion, de rires et de complicité, et cela se ressent parfaitement dans les photos. Océane a un vrai talent pour capturer les instants naturels et authentiques, sans jamais forcer les poses. Le résultat est tout simplement sublime, des souvenirs précieux que je garderai toute ma vie. Je recommande Océane les yeux fermés à toutes les mamans (et familles) qui souhaitent vivre une belle expérience et repartir avec des photos pleines d’amour et de sensibilité. 💕📸",
+        author: "Victoria",
+        service: "Séance Mère-Fille",
+        avatar: "/images/Victoria.webp"
     },
 ];
 

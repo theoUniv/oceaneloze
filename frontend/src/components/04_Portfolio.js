@@ -12,6 +12,8 @@ const portfolioItems = [
     { type: 'quote', text: "Capturer l'âme, pas seulement le sourire." },
     { type: 'image', src: '/images/portfolio-7.webp', title: 'Reflets Mystiques' },
     { type: 'image', src: '/images/portfolio-8.webp', title: 'Pose Intemporelle' },
+    { type: 'image', src: '/images/Vic.webp', title: 'Vic' },
+    { type: 'image', src: '/images/Victoria.webp', title: 'Victoria' },
 ];
 
 const Portfolio = () => {
