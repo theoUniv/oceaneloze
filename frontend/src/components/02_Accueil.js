@@ -19,10 +19,7 @@ const carouselImages = [
         src: '/images/karcher.webp',
         alt: "Photographie artistique Karcher",
     },
-    {
-        src: '/images/miss.webp',
-        alt: "Photographie de miss",
-    }
+
 ];
 
 const Accueil = () => {
