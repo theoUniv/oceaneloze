@@ -19,7 +19,10 @@ const carouselImages = [
         src: '/images/karcher.webp',
         alt: "Photographie artistique Karcher",
     },
-
+    {
+        src: '/images/enfant_ext.webp',
+        alt: "Photographie d'enfant en extérieur",
+    }
 ];
 
 const Accueil = () => {

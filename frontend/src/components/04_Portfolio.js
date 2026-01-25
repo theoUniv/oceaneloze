@@ -14,6 +14,8 @@ const portfolioItems = [
     { type: 'image', src: '/images/portfolio-8.webp', title: 'Pose Intemporelle' },
     { type: 'image', src: '/images/Vic.webp', title: 'Vic' },
     { type: 'image', src: '/images/Victoria.webp', title: 'Victoria' },
+    { type: 'image', src: '/images/miss.webp', title: 'Miss' },
+    { type: 'image', src: '/images/enfant.webp', title: 'Enfant' },
 ];
 
 const Portfolio = () => {
