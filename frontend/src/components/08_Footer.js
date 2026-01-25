@@ -68,8 +68,8 @@ const Footer = () => {
                 }}
             >
                 <a
-                    href="/CGU.txt"
-                    download
+                    href="/cgu.pdf"
+                    download="Mentions_Legales_et_CGV_Oceane_Loze.pdf"
                     style={{ color: '#555', textDecoration: 'none' }}
                 >
                     Télécharger les CGU
