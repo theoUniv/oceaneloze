@@ -14,6 +14,10 @@ const carouselImages = [
         src: '/images/carousel-3.webp',
         alt: "Femme en robe blanche posant devant la fontaine du Palais Longchamp à Marseille",
     },
+    {
+        src: '/images/famille2.webp',
+        alt: "Séance famille en extérieur",
+    },
 
     {
         src: '/images/karcher.webp',
@@ -67,6 +71,7 @@ const Accueil = () => {
                             alt={image.alt}
                             // La classe 'active' est ajoutée seulement si l'index correspond à l'image actuelle
                             className={index === currentIndex ? 'slide active' : 'slide'}
+                            loading={index === 0 ? "eager" : "lazy"}
                         />
                     ))}
                 </div>

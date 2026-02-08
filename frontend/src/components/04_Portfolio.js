@@ -15,7 +15,7 @@ const portfolioItems = [
     { type: 'image', src: '/images/Vic.webp', title: 'Vic' },
     { type: 'image', src: '/images/Victoria.webp', title: 'Victoria' },
     { type: 'image', src: '/images/miss.webp', title: 'Miss' },
-    { type: 'image', src: '/images/enfant.webp', title: 'Enfant' },
+    { type: 'image', src: '/images/bébé1.webp', title: 'Bébé' },
 ];
 
 const Portfolio = () => {
@@ -45,9 +45,8 @@ const Portfolio = () => {
                                     key={index}
                                     onClick={() => openLightbox(item.src)}
                                 >
-                                    <img src={item.src} alt={item.title} />
+                                    <img src={item.src} alt={item.title} loading="lazy" />
                                     <div className="portfolio-overlay">
-                                        <h3>{item.title}</h3>
                                     </div>
                                 </div>
                             );

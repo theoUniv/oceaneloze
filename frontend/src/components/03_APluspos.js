@@ -24,7 +24,7 @@ const APropos = () => {
                 {/* --- Colonne de l'image --- */}
                 <div className="apropos-image-wrapper">
                     <div className="apropos-image-bg"></div>
-                    <img src="/images/profil_new.webp" alt="Photographe Océane Loze" className="apropos-img-modern" />
+                    <img src="/images/profil_new.webp" alt="Photographe Océane Loze" className="apropos-img-modern" loading="lazy" />
                 </div>
 
                 {/* --- Colonne du texte --- */}
@@ -53,6 +53,7 @@ const APropos = () => {
                         alt="Signature d'Océane Loze"
                         className="signature-img"
                         style={{ width: '300px', height: 'auto' }} // augmente la largeur, garde la proportion
+                        loading="lazy"
                     />
                 </div>
             </div>

@@ -63,7 +63,7 @@ const services = [
             '40 photos en HD',
             'Galerie en ligne privée',
             'Lieu au choix',
-            '*une moto ou un véhicule peuvent être mis à disposition pour le shooting ( 65€ en plus de la prestation - lieu en fonction du véhicule )',
+            '*une moto ou un véhicule peuvent être mis à disposition pour le shooting ( 90€ en plus de la prestation - lieu en fonction du véhicule )',
         ],
         ctaText: 'Réserver cette séance',
         ctaLink: '#contact'
@@ -74,7 +74,7 @@ const services = [
         price: 'Sur devis',
         features: [
             'Tirage grand format',
-            'Tirage photo à partir de 0.40€',
+            'Tirage photo à partir de 0.60€',
             'Restauration de photos anciennes à partir de 10€',
             'Toile photo'
         ],
@@ -91,7 +91,7 @@ const Prestations = () => {
                 {services.map((service, index) => (
                     <div className="prestation-card-modern" key={index}>
                         <div className="prestation-image-container">
-                            <img src={service.imageSrc} alt={` pour ${service.title}`} />
+                            <img src={service.imageSrc} alt={` pour ${service.title}`} loading="lazy" />
                         </div>
                         <div className="prestation-content">
                             <h3>{service.title}</h3>
