@@ -3,32 +3,14 @@ import { FaInstagram, FaFacebook, FaWhatsapp } from 'react-icons/fa';
 
 const Footer = () => {
     return (
-        <footer
-            id="reseaux"
-            className="footer"
-            style={{
-                textAlign: 'center',
-                padding: '30px 0',
-                backgroundColor: '#fff',
-                borderTop: '1px solid #eee'
-            }}
-        >
+        <footer id="reseaux" className="footer">
             {/* --- Réseaux Sociaux --- */}
-            <div
-                className="reseaux-sociaux"
-                style={{
-                    display: 'flex',
-                    justifyContent: 'center',
-                    gap: '25px',
-                    marginBottom: '20px',
-                }}
-            >
+            <div className="reseaux-sociaux">
                 <a
                     href="https://www.instagram.com/fotocege/"
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Instagram"
-                    style={{ fontSize: '36px', color: '#000', transition: '0.3s' }}
                 >
                     <FaInstagram />
                 </a>
@@ -37,7 +19,6 @@ const Footer = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Facebook"
-                    style={{ fontSize: '36px', color: '#000', transition: '0.3s' }}
                 >
                     <FaFacebook />
                 </a>
@@ -46,38 +27,27 @@ const Footer = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="WhatsApp"
-                    style={{ fontSize: '36px', color: '#000', transition: '0.3s' }}
                 >
                     <FaWhatsapp />
                 </a>
             </div>
 
             {/* --- SIRET --- */}
-            <p style={{ fontSize: '14px', color: '#555', marginBottom: '10px' }}>
-                SIRET : 977 785 039 00016
-            </p>
+            <p>SIRET : 977 785 039 00016</p>
 
             {/* --- Lien téléchargement CGU --- */}
-            <div
-                style={{
-                    marginTop: '10px',
-                    display: 'flex',
-                    justifyContent: 'center',
-                    gap: '15px',
-                    flexWrap: 'wrap'
-                }}
-            >
+            <div style={{ marginTop: '10px' }}>
                 <a
                     href="/cgu.pdf"
                     download="Mentions_Legales_et_CGV_Oceane_Loze.pdf"
-                    style={{ color: '#555', textDecoration: 'none' }}
+                    style={{ color: 'inherit', textDecoration: 'none', opacity: 0.8 }}
                 >
                     Télécharger les CGU
                 </a>
             </div>
 
             {/* --- Copyright --- */}
-            <p style={{ fontSize: '13px', color: '#888', marginTop: '10px' }}>
+            <p style={{ fontSize: '13px', opacity: 0.6, marginTop: '10px' }}>
                 &copy; {new Date().getFullYear()} Océane Loze | Tous droits réservés.
             </p>
         </footer>

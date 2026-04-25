@@ -17,9 +17,8 @@ router.post('/', async (req, res) => {
             message: req.body.message
         };
 
-        // ✅ Sauvegarde dans MongoDB
-        const newContact = new Contact(contactData);
-        await newContact.save();
+        // ✅ Sauvegarde dans la base locale (SQLite/Sequelize)
+        const newContact = await Contact.create(contactData);
 
         // ✅ Envoie les e-mails
         await Promise.all([

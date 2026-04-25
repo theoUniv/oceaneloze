@@ -1,26 +1,25 @@
 import React, { useState } from 'react';
 
 // On enrichit la structure de nos données
-const portfolioItems = [
-    { type: 'image', src: '/images/portfolio-1.webp', title: 'Douce Rêverie', cols: 1 },
-    { type: 'image', src: '/images/portfolio-2.webp', title: 'Chrome & Caractère' },
-    { type: 'quote', text: "Etre soi c'est déjà magnifique." },
-    { type: 'image', src: '/images/portfolio-3.webp', title: 'Palais d\'Été' },
-    { type: 'image', src: '/images/portfolio-4.webp', title: 'Urbain & Sauvage', cols: 1 },
-    { type: 'image', src: '/images/portfolio-5.webp', title: 'Reflets Mystiques' },
-    { type: 'image', src: '/images/portfolio-6.webp', title: 'Pose Intemporelle' },
-    { type: 'quote', text: "Capturer l'âme, pas seulement le sourire." },
-    { type: 'image', src: '/images/portfolio-7.webp', title: 'Reflets Mystiques' },
-    { type: 'image', src: '/images/portfolio-8.webp', title: 'Pose Intemporelle' },
-    { type: 'image', src: '/images/Vic.webp', title: 'Vic' },
-    { type: 'image', src: '/images/Victoria.webp', title: 'Victoria' },
-    { type: 'image', src: '/images/miss.webp', title: 'Miss' },
-    { type: 'image', src: '/images/bébé1.webp', title: 'Bébé' },
-];
-
 const Portfolio = () => {
     // État pour gérer l'image sélectionnée dans la lightbox
     const [selectedImage, setSelectedImage] = useState(null);
+    const [portfolioItems, setPortfolioItems] = useState([]);
+
+    React.useEffect(() => {
+        const fetchPortfolio = async () => {
+            try {
+                const res = await fetch('http://localhost:5001/api/portfolio/cards');
+                const data = await res.json();
+                // Garder que les portfolio et trier par order
+                const items = data.filter(c => c.category === 'portfolio').sort((a, b) => a.order - b.order);
+                setPortfolioItems(items);
+            } catch (err) {
+                console.error("Erreur de récupération du portfolio", err);
+            }
+        };
+        fetchPortfolio();
+    }, []);
 
     const openLightbox = (src) => {
         setSelectedImage(src);
@@ -35,31 +34,23 @@ const Portfolio = () => {
     return (
         <>
             <section id="portfolio">
-                <h2 class="adelia">Portfolio</h2>
+                <h2 className="adelia">Portfolio</h2>
                 <div className="portfolio-grid-modern">
-                    {portfolioItems.map((item, index) => {
-                        if (item.type === 'image') {
-                            return (
-                                <div
-                                    className={`portfolio-item-modern ${item.cols === 2 ? 'span-2' : ''}`}
-                                    key={index}
-                                    onClick={() => openLightbox(item.src)}
-                                >
-                                    <img src={item.src} alt={item.title} loading="lazy" />
-                                    <div className="portfolio-overlay">
-                                    </div>
+                    {portfolioItems.filter(item => item.type === 'image').map((item, index) => (
+                            <div
+                                className={`portfolio-item-modern ${item.description === '1' ? 'span-2' : ''}`}
+                                key={item.id || index}
+                                onClick={() => openLightbox(item.imagePath)}
+                            >
+                                <img 
+                                    src={item.imagePath.startsWith('http') ? item.imagePath : `http://localhost:5001/api/images/thumbnail?path=${encodeURIComponent(item.imagePath)}`} 
+                                    alt={item.title} 
+                                    loading="lazy" 
+                                />
+                                <div className="portfolio-overlay">
                                 </div>
-                            );
-                        }
-                        if (item.type === 'quote') {
-                            return (
-                                <div className="portfolio-quote-item" key={index}>
-                                    <blockquote>"{item.text}"</blockquote>
-                                </div>
-                            );
-                        }
-                        return null;
-                    })}
+                            </div>
+                    ))}
                 </div>
             </section>
 

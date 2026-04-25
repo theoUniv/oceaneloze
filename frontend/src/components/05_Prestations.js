@@ -1,97 +1,42 @@
 import React from 'react';
 
 // On structure les données pour plus de clarté et de flexibilité
-const services = [
-    {
-        imageSrc: '/images/Studio.webp',
-        title: 'Séance Studio',
-        price: 'À partir de 120€',
-        features: [
-            'Séance de 1 heure',
-            'Studio disponible à Meaux (77)',
-            '40 photos en HD',
-            'Galerie en ligne privée',
-            'Décors et fonds au choix',
-        ],
-        ctaText: 'Réserver cette séance',
-        ctaLink: '#contact'
-    },
-    {
-        imageSrc: '/images/exterieur.webp',
-        title: 'Séance Extérieur',
-        price: 'À partir de 100€',
-        features: [
-            'Séance de 1h',
-            '40 photos en HD',
-            'Galerie en ligne privée',
-            'Lieu au choix',
-        ],
-        ctaText: 'Réserver cette séance',
-        ctaLink: '#contact'
-    },
-    {
-        imageSrc: '/images/mariage.webp',
-        title: 'Evènementiel',
-        price: 'Sur Devis',
-        features: [
-            'Mariage, anniversaire, entreprise...',
-            'Reportage photo',
-        ],
-        ctaText: 'Demander un devis',
-        ctaLink: '#contact'
-    },
-    {
-        imageSrc: '/images/animaux.webp',
-        title: 'Séance Animalière',
-        price: 'À partir de 170€',
-        features: [
-            'Séance de 1h',
-            'Chevaux mis à disposition (Provins 77)',
-            'Avec votre animal (à partir de 100€)',
-            '40 Photos en HD',
-            'Galerie en ligne privée'
-        ],
-        ctaText: 'Réserver cette séance',
-        ctaLink: '#contact'
-    },
-    {
-        imageSrc: '/images/Vehicule.webp',
-        title: 'Séance Auto/Moto',
-        price: 'À partir de 100€',
-        features: [
-            'Séance de 1h avec votre véhicule',
-            '40 photos en HD',
-            'Galerie en ligne privée',
-            'Lieu au choix',
-            '*une moto ou un véhicule peuvent être mis à disposition pour le shooting ( 90€ en plus de la prestation - lieu en fonction du véhicule )',
-        ],
-        ctaText: 'Réserver cette séance',
-        ctaLink: '#contact'
-    },
-    {
-        imageSrc: '/images/contact.webp',
-        title: 'Restauration Photo/Tirage',
-        price: 'Sur devis',
-        features: [
-            'Tirage grand format',
-            'Tirage photo à partir de 0.60€',
-            'Restauration de photos anciennes à partir de 10€',
-            'Toile photo'
-        ],
-        ctaText: 'Réserver cette séance',
-        ctaLink: '#contact'
-    }
-];
-
 const Prestations = () => {
+    const [services, setServices] = React.useState([]);
+
+    React.useEffect(() => {
+        const fetchPrestations = async () => {
+            try {
+                const res = await fetch('http://localhost:5001/api/portfolio/cards');
+                const data = await res.json();
+                const items = data.filter(c => c.category === 'prestation').sort((a, b) => a.order - b.order);
+                
+                // Parse features back to array
+                const parsedItems = items.map(item => ({
+                    ...item,
+                    features: item.features ? JSON.parse(item.features) : []
+                }));
+
+                setServices(parsedItems);
+            } catch (err) {
+                console.error("Erreur de récupération des prestations", err);
+            }
+        };
+        fetchPrestations();
+    }, []);
+
     return (
         <section id="prestations">
-            <h2 class="adelia">Mes Prestations</h2>
+            <h2 className="adelia">Mes Prestations</h2>
             <div className="prestations-container-modern">
                 {services.map((service, index) => (
-                    <div className="prestation-card-modern" key={index}>
+                    <div className="prestation-card-modern" key={service.id || index}>
                         <div className="prestation-image-container">
-                            <img src={service.imageSrc} alt={` pour ${service.title}`} loading="lazy" />
+                            <img 
+                                src={service.imagePath?.startsWith('http') ? service.imagePath : `http://localhost:5001/api/images/thumbnail?path=${encodeURIComponent(service.imagePath)}`} 
+                                alt={` pour ${service.title}`} 
+                                loading="lazy" 
+                            />
                         </div>
                         <div className="prestation-content">
                             <h3>{service.title}</h3>
@@ -101,8 +46,8 @@ const Prestations = () => {
                                     <li key={fIndex}>{feature}</li>
                                 ))}
                             </ul>
-                            <a href={service.ctaLink} className="prestation-cta">
-                                {service.ctaText}
+                            <a href="#contact" className="prestation-cta">
+                                {service.description || 'Réserver cette séance'}
                             </a>
                         </div>
                     </div>

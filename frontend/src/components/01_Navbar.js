@@ -45,7 +45,6 @@ const Navbar = () => {
                 <li><a href="#avis" onClick={() => setIsOpen(false)}>Avis</a></li>
                 <li><a href="https://www.jingoo.com/client/accessReport" onClick={() => setIsOpen(false)}>Accès Client</a></li>
                 <li><a href="#contact" onClick={() => setIsOpen(false)}>Contact</a></li>
-                
             </ul>
         </nav>
     );
