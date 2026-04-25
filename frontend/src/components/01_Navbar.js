@@ -34,7 +34,10 @@ const Navbar = () => {
 
     return (
         <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
-            <a href="#accueil" className="nav-logo adelia">Océane Loze</a>
+            <a href="#accueil" className="nav-logo">
+                <img src="/images/logoblanc.png" alt="OL Logo" className="nav-logo-icon" />
+                <img src="/images/texteblanc.png" alt="Océane Loze" className="nav-logo-text" />
+            </a>
             <button className={`nav-toggle ${isOpen ? 'active' : ''}`} onClick={() => setIsOpen(!isOpen)}>
                 ☰
             </button>

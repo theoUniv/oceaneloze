@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/01_Navbar';
@@ -15,16 +15,46 @@ import AdminLogin from './pages/AdminLogin';
 import AdminDashboard from './pages/AdminDashboard';
 
 function Home() {
+  useEffect(() => {
+    const revealElements = document.querySelectorAll('.reveal');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.15 // Se déclenche quand 15% de l'élément est visible
+    });
+
+    revealElements.forEach(el => observer.observe(el));
+    
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <React.Fragment>
       <Navbar />
       <main>
-        <Accueil />
-        <APropos />
-        <Portfolio />
-        <Prestations />
-        <Avis />
-        <Contact />
+        <div className="reveal">
+          <Accueil />
+        </div>
+        <div className="reveal fade-up">
+          <APropos />
+        </div>
+        <div className="reveal fade-up">
+          <Portfolio />
+        </div>
+        <div className="reveal fade-up">
+          <Prestations />
+        </div>
+        <div className="reveal fade-up">
+          <Avis />
+        </div>
+        <div className="reveal fade-up">
+          <Contact />
+        </div>
       </main>
       <Footer />
     </React.Fragment>

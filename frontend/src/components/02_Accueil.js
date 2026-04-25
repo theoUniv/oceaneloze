@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 // On garde notre liste d'images
 const carouselImages = [
     {
-        src: '/images/carousel-1.webp',
+        src: '/images/5caroussel.webp',
         alt: "Femme style vintage allongée sur une nappe de pique-nique dans l'herbe",
     },
     {
@@ -76,6 +76,15 @@ const Accueil = () => {
                     ))}
                 </div>
             </div>
+
+            {/* Texte centré par-dessus le slider */}
+            <div className="accueil-content">
+                <h1 className="accueil-title">Océane Loze</h1>
+                <p className="accueil-subtitle">P H O T O G R A P H E</p>
+            </div>
+
+            {/* Copyright en bas */}
+            <p className="accueil-copyright">© 2025 Océane Loze. Tous droits réservés.</p>
         </section>
     );
 };

@@ -41,10 +41,11 @@
 
 .meldyte {
   font-size: 3rem;
-    /* environ 48px, tu peux changer */
-    line-height: 1.2;
-    /* pour pas que ça se colle */
-  font-family: 'Meldyte', sans-serif;;
+  /* environ 48px, tu peux changer */
+  line-height: 1.2;
+  /* pour pas que ça se colle */
+  font-family: 'Meldyte', sans-serif;
+  ;
 }
 
 .adelia {
@@ -123,12 +124,22 @@ section {
 }
 
 .nav-logo {
-  font-size: 1.6rem;
-  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
   text-decoration: none;
-  color: var(--color-white);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+}
+
+.nav-logo-icon {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+}
+
+.nav-logo-text {
+  height: 30px;
+  width: auto;
+  object-fit: contain;
 }
 
 .nav-links {
@@ -216,6 +227,22 @@ section {
   overflow: hidden;
 }
 
+.slider-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom,
+      rgba(0, 0, 0, 0.15) 0%,
+      rgba(0, 0, 0, 0.4) 45%,
+      rgba(0, 0, 0, 0.5) 55%,
+      rgba(0, 0, 0, 0.3) 100%);
+  z-index: 2;
+  pointer-events: none;
+}
+
 .slides-container {
   width: 100%;
   height: 100%;
@@ -271,10 +298,69 @@ section {
 }
 
 .accueil-content {
-  display: none;
+  position: absolute;
+  z-index: 5;
+  text-align: left;
+  color: var(--color-white);
+  pointer-events: none;
+  left: 8%;
 }
 
-/* --- A Propos (Version Moderne Superposée) --- */
+.accueil-title {
+  font-family: var(--font-title);
+  font-size: 5.5rem;
+  font-weight: 300;
+  letter-spacing: 0.08em;
+  margin: 0;
+  color: var(--color-white);
+  text-shadow: 0 2px 30px rgba(0, 0, 0, 0.5);
+}
+
+.accueil-subtitle {
+  font-family: var(--font-text);
+  font-size: 0.9rem;
+  font-weight: 300;
+  letter-spacing: 0.35em;
+  margin-top: 0.8rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+.accueil-copyright {
+  position: absolute;
+  bottom: 2rem;
+  left: 8%;
+  z-index: 5;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.7rem;
+  font-family: var(--font-text);
+  letter-spacing: 0.05em;
+  pointer-events: none;
+}
+
+/* --- Animations de Révélation au Scroll --- */
+.reveal {
+  opacity: 0;
+  transition: all 1.2s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.fade-up {
+  transform: translateY(40px);
+}
+
+.fade-in {
+  transform: scale(0.95);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Optionnel : délais pour les cascades d'animations */
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+
 #apropos {
   background-color: var(--color-white);
   overflow: hidden;
@@ -651,6 +737,7 @@ section {
   background-color: var(--color-dark);
   color: var(--color-white);
 }
+
 /* --- Avis (Version Moderne avec Avatars) --- */
 #avis {
   background-color: var(--color-off-white);
@@ -745,6 +832,7 @@ section {
   background-color: var(--color-dark);
   transform: scale(1.2);
 }
+
 /* --- Contact (Refonte Moderne "Intégrée") --- */
 .contact-section-wrapper {
   background-color: var(--color-off-white);

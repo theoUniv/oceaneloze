@@ -11,7 +11,7 @@ const philosophyPoints = [
         description: "Jouer avec la lumière naturelle pour sculpter chaque image."
     },
     {
-        title: "Émotion",
+        title: "Emotion",
         description: "Raconter votre histoire, une émotion à la fois."
     }
 ];
