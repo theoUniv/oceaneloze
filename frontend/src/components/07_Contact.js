@@ -44,7 +44,22 @@ const Contact = () => {
 
     return (
         <section id="contact" className="contact-section-wrapper">
-            <div className="contact-container-modern">
+            {/* Div qui agit comme ::before via CSS, mais avec l'URL injectée en inline */}
+            <div 
+              className="contact-section-bg" 
+              style={{
+                  position: 'absolute',
+                  top: '-50px', left: '-50px', right: '-50px', bottom: '-50px',
+                  backgroundImage: "url('/images/animaux.webp')",
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                  filter: 'blur(25px)',
+                  zIndex: 0,
+                  opacity: 0.7
+              }}
+            ></div>
+            
+            <div className="contact-container-modern" style={{ position: 'relative', zIndex: 1 }}>
                 {/* --- Panneau de Gauche : Formulaire --- */}
                 <div className="form-panel">
                     <h2 class="adelia-contact">Formulaire de contact</h2>

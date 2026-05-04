@@ -939,7 +939,7 @@ section {
   left: -50px;
   right: -50px;
   bottom: -50px;
-  background-image: url('/images/animaux.webp');
+  /* background-image est géré dans le composant JS (Contact.js) pour éviter l'erreur de build Webpack */
   background-size: cover;
   background-position: center;
   filter: blur(25px);
