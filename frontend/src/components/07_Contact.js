@@ -47,7 +47,7 @@ const Contact = () => {
             <div className="contact-container-modern">
                 {/* --- Panneau de Gauche : Formulaire --- */}
                 <div className="form-panel">
-                    <h2 class="adelia-contact">Demande de devis</h2>
+                    <h2 class="adelia-contact">Formulaire de contact</h2>
                     <p
                         className="form-subtitle"
                         style={{ paddingTop: "20px" }}

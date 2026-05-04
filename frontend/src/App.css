@@ -922,15 +922,34 @@ section {
 
 /* --- Contact (Refonte Moderne "Intégrée") --- */
 .contact-section-wrapper {
-  background-color: var(--color-off-white);
+  position: relative;
   padding: 80px 5%;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  overflow: hidden; /* Empêche le flou de déborder */
+}
+
+/* Pseudo-élément pour appliquer le fond flou sans flouter le formulaire */
+.contact-section-wrapper::before {
+  content: "";
+  position: absolute;
+  top: -50px;
+  left: -50px;
+  right: -50px;
+  bottom: -50px;
+  background-image: url('/images/animaux.webp');
+  background-size: cover;
+  background-position: center;
+  filter: blur(25px);
+  z-index: 0;
+  opacity: 0.7; /* Légère transparence pour ne pas être trop sombre */
 }
 
 .contact-container-modern {
+  position: relative;
+  z-index: 1; /* S'assure que le formulaire est au-dessus du fond flou */
   display: grid;
   grid-template-columns: 55% 45%;
   max-width: 1100px;
