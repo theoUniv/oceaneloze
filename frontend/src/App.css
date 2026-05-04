@@ -361,132 +361,190 @@ section {
 .delay-2 { transition-delay: 0.2s; }
 .delay-3 { transition-delay: 0.3s; }
 
-#apropos {
-  background-color: var(--color-white);
+/* ============================================
+   À PROPOS — Design Split-Screen v2
+   ============================================ */
+
+.apropos-section-v2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+  overflow: hidden;
+  padding: 0;          /* écrase le padding global de section */
+  margin: 0;
+  border-bottom: none; /* écrase le border global de section */
+}
+
+/* --- Colonne image --- */
+.apropos-img-col {
+  position: relative;
   overflow: hidden;
 }
 
-.apropos-modern-container {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  /* Grille de 12 colonnes pour la flexibilité */
-  align-items: center;
-  gap: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-/* --- Colonne de l'image --- */
-.apropos-image-wrapper {
-  grid-column: 1 / span 6;
-  /* L'image prend les 6 premières colonnes */
-  position: relative;
-  height: 550px;
-}
-
-/* Fond de couleur décoratif derrière l'image */
-.apropos-image-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 80%;
-  height: 90%;
-  background-color: var(--color-light-gray);
-  border-radius: 12px;
-}
-
-.apropos-img-modern {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 85%;
-  height: 95%;
+.apropos-img-full {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  border-radius: 12px;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  object-position: center top;
+  display: block;
+  transition: transform 0.8s ease;
 }
 
-/* --- Colonne du texte --- */
-.apropos-content-wrapper {
-  grid-column: 7 / span 6;
-  /* Le texte prend les 6 dernières colonnes */
-  padding-left: 2rem;
+.apropos-img-col:hover .apropos-img-full {
+  transform: scale(1.03);
 }
 
-.apropos-content-wrapper h2 {
-  text-align: left;
-  margin-top: 0;
-  font-size: 3rem;
-}
-
-.apropos-intro {
-  font-size: 1.1rem;
-  font-family: var(--font-text);
-  font-style: normal;
-  color: var(--color-gray);
-  line-height: 1.8;
-}
-
-/* --- Section Philosophie --- */
-.philosophy-section {
+/* Badge flottant */
+.apropos-badge {
+  position: absolute;
+  bottom: 2.5rem;
+  right: 2.5rem;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #fff;
+  border-radius: 50%;
+  width: 110px;
+  height: 110px;
   display: flex;
-  gap: 2rem;
-  margin: 2.5rem 0;
-  border-left: 3px solid var(--color-light-gray);
-  padding-left: 2rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 4px;
 }
 
-.philosophy-item h3 {
-  text-align: left;
-  font-size: 1.3rem;
-  margin: 0 0 0.5rem 0;
+.apropos-badge-number {
+  font-size: 2.2rem;
+  font-family: var(--font-title);
+  line-height: 1;
 }
 
-.philosophy-item p {
-  margin: 0;
+.apropos-badge-label {
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.85;
+  font-family: var(--font-text);
+  padding: 0 8px;
+  line-height: 1.3;
+}
+
+/* --- Colonne texte --- */
+.apropos-text-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 6rem 5rem;
+  background-color: var(--color-white);
+}
+
+.apropos-eyebrow {
+  display: block;
+  font-size: 0.72rem;
+  font-family: var(--font-text);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
   color: var(--color-gray);
+  margin-bottom: 1rem;
+}
+
+.apropos-headline {
+  font-size: 3.2rem;
+  font-family: var(--font-title);
+  font-weight: 300;
+  color: var(--color-dark);
+  margin: 0 0 2rem 0;
+  text-align: left;
+  line-height: 1.1;
+}
+
+.apropos-body {
+  font-size: 1rem;
+  font-family: var(--font-text);
+  color: var(--color-gray);
+  line-height: 1.85;
+  margin-bottom: 1.2rem;
+}
+
+/* --- Valeurs --- */
+.apropos-values {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  margin: 2.5rem 0;
+  padding-left: 1.5rem;
+  border-left: 2px solid var(--color-light-gray);
+}
+
+.apropos-value-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.2rem;
+}
+
+.apropos-value-icon {
+  font-size: 1.1rem;
+  color: var(--color-dark);
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.apropos-value-title {
+  font-family: var(--font-title);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-dark);
+  margin: 0 0 0.2rem 0;
+  text-align: left;
+}
+
+.apropos-value-desc {
+  font-family: var(--font-text);
+  font-size: 0.9rem;
+  color: var(--color-gray);
+  margin: 0;
+  line-height: 1.6;
 }
 
 /* --- Signature --- */
-.signature-img {
-  width: 150px;
-  margin-top: 1rem;
+.apropos-signature {
+  width: 220px;
+  height: auto;
+  margin-top: 0.5rem;
+  opacity: 0.85;
 }
 
-/* --- Responsive pour la section A Propos --- */
-@media (max-width: 950px) {
-  .apropos-modern-container {
+/* --- Responsive --- */
+@media (max-width: 1024px) {
+  .apropos-text-col {
+    padding: 4rem 3rem;
+  }
+  .apropos-headline {
+    font-size: 2.4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .apropos-section-v2 {
     grid-template-columns: 1fr;
-    /* On passe à une seule colonne */
+    min-height: auto;
   }
 
-  .apropos-image-wrapper {
-    grid-row: 1;
-    /* L'image passe en premier */
-    grid-column: 1 / -1;
-    height: 450px;
-    /* On ajuste la hauteur pour mobile */
+  .apropos-img-col {
+    height: 65vw;
+    min-height: 320px;
   }
 
-  .apropos-content-wrapper {
-    grid-row: 2;
-    /* Le texte passe en deuxième */
-    grid-column: 1 / -1;
-    padding-left: 0;
-    margin-top: 2rem;
+  .apropos-text-col {
+    padding: 3rem 2rem;
   }
 
-  .apropos-content-wrapper h2,
-  .apropos-intro {
-    text-align: center;
-  }
-
-  .philosophy-section {
-    flex-direction: column;
-    border-left: none;
-    padding-left: 0;
+  .apropos-headline {
+    font-size: 2.2rem;
   }
 }
+
 
 /* --- Portfolio (Grille Uniforme Portrait) --- */
 #portfolio {
