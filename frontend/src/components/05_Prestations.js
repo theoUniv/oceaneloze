@@ -7,7 +7,7 @@ const Prestations = () => {
     React.useEffect(() => {
         const fetchPrestations = async () => {
             try {
-                const res = await fetch('http://localhost:5001/api/portfolio/cards');
+                const res = await fetch(`${process.env.REACT_APP_API_URL}/api/portfolio/cards`);
                 const data = await res.json();
                 const items = data.filter(c => c.category === 'prestation').sort((a, b) => a.order - b.order);
                 
@@ -33,7 +33,7 @@ const Prestations = () => {
                     <div className="prestation-card-modern" key={service.id || index}>
                         <div className="prestation-image-container">
                             <img 
-                                src={service.imagePath?.startsWith('http') ? service.imagePath : `http://localhost:5001/api/images/thumbnail?path=${encodeURIComponent(service.imagePath)}`} 
+                                src={service.imagePath?.startsWith('http') ? service.imagePath : `${process.env.REACT_APP_API_URL}/api/images/thumbnail?path=${encodeURIComponent(service.imagePath)}`} 
                                 alt={` pour ${service.title}`} 
                                 loading="lazy" 
                             />

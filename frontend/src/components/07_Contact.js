@@ -30,7 +30,7 @@ const Contact = () => {
             creneau: dateSelectionnee.toLocaleDateString('fr-FR', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })
         };
 
-        axios.post('http://localhost:5001/api/contact', finalData)
+        axios.post(`${process.env.REACT_APP_API_URL}/api/contact`, finalData)
             .then(response => {
                 setFormMessage({ type: 'success', text: response.data.message });
                 setFormData({ nom: '', email: '', telephone: '', prestation: 'Studio', message: '' });

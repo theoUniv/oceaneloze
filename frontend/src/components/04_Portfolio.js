@@ -9,7 +9,7 @@ const Portfolio = () => {
     React.useEffect(() => {
         const fetchPortfolio = async () => {
             try {
-                const res = await fetch('http://localhost:5001/api/portfolio/cards');
+                const res = await fetch(`${process.env.REACT_APP_API_URL}/api/portfolio/cards`);
                 const data = await res.json();
                 // Garder que les portfolio et trier par order
                 const items = data.filter(c => c.category === 'portfolio').sort((a, b) => a.order - b.order);
@@ -43,7 +43,7 @@ const Portfolio = () => {
                                 onClick={() => openLightbox(item.imagePath)}
                             >
                                 <img 
-                                    src={item.imagePath.startsWith('http') ? item.imagePath : `http://localhost:5001/api/images/thumbnail?path=${encodeURIComponent(item.imagePath)}`} 
+                                    src={item.imagePath.startsWith('http') ? item.imagePath : `${process.env.REACT_APP_API_URL}/api/images/thumbnail?path=${encodeURIComponent(item.imagePath)}`} 
                                     alt={item.title} 
                                     loading="lazy" 
                                 />

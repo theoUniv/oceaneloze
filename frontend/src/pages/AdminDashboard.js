@@ -34,7 +34,7 @@ const AdminDashboard = () => {
 
     const fetchCards = async () => {
         try {
-            const res = await axios.get('http://localhost:5001/api/portfolio/cards');
+            const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/portfolio/cards`);
             setCards(res.data.sort((a,b) => a.order - b.order));
         } catch (err) {
             console.error('Erreur de chargement des cartes', err);
@@ -43,7 +43,7 @@ const AdminDashboard = () => {
 
     const fetchContacts = async () => {
         try {
-            const res = await axios.get('http://localhost:5001/api/admin/contacts');
+            const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/admin/contacts`);
             setContacts(res.data);
         } catch (err) {
             console.error('Erreur de chargement des contacts', err);
@@ -85,7 +85,7 @@ const AdminDashboard = () => {
         formData.append('image', file);
 
         try {
-            const res = await axios.post('http://localhost:5001/api/upload', formData, {
+            const res = await axios.post(`${process.env.REACT_APP_API_URL}/api/upload`, formData, {
                 headers: { 'Content-Type': 'multipart/form-data' }
             });
             setNewImage(res.data.imagePath); // Ex: /images/upload_123.jpg
@@ -98,7 +98,7 @@ const AdminDashboard = () => {
     const handleDeleteCard = async (id) => {
         if (!window.confirm("Êtes-vous sûr de vouloir supprimer cet élément ?")) return;
         try {
-            await axios.delete(`http://localhost:5001/api/portfolio/cards/${id}`);
+            await axios.delete(`${process.env.REACT_APP_API_URL}/api/portfolio/cards/${id}`);
             fetchCards();
         } catch (err) {
             alert("Erreur lors de la suppression");
@@ -128,9 +128,9 @@ const AdminDashboard = () => {
 
         try {
             if (editingId) {
-                await axios.put(`http://localhost:5001/api/portfolio/cards/${editingId}`, payload);
+                await axios.put(`${process.env.REACT_APP_API_URL}/api/portfolio/cards/${editingId}`, payload);
             } else {
-                await axios.post('http://localhost:5001/api/portfolio/cards', payload);
+                await axios.post(`${process.env.REACT_APP_API_URL}/api/portfolio/cards`, payload);
             }
             resetForm();
             fetchCards();
@@ -203,7 +203,7 @@ const AdminDashboard = () => {
                                             </label>
                                             <span style={{ fontSize: '14px', color: '#555' }}>OU</span>
                                             <input placeholder="Chemin/URL manuelle complète (/images/x.webp)" value={newImage} onChange={(e) => setNewImage(e.target.value)} style={{ ...inputStyle, flex: 1 }} />
-                                            {newImage && <img src={newImage.startsWith('http') ? newImage : `http://localhost:5001/api/images/thumbnail?path=${encodeURIComponent(newImage)}`} alt="Aperçu" style={{ height: '40px', width: '40px', objectFit: 'cover', borderRadius: '4px', border: '1px solid #ccc' }} />}
+                                            {newImage && <img src={newImage.startsWith('http') ? newImage : `${process.env.REACT_APP_API_URL}/api/images/thumbnail?path=${encodeURIComponent(newImage)}`} alt="Aperçu" style={{ height: '40px', width: '40px', objectFit: 'cover', borderRadius: '4px', border: '1px solid #ccc' }} />}
                                         </div>
                                     </>
                                 )}
