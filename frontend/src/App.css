@@ -488,42 +488,46 @@ section {
   }
 }
 
-/* --- Portfolio (Version Ultra Moderne) --- */
+/* --- Portfolio (Grille Uniforme Portrait) --- */
 #portfolio {
   background-color: var(--color-white);
 }
 
 .portfolio-grid-modern {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  grid-auto-rows: 280px;
-  grid-auto-flow: dense;
-  /* Permet de combler les trous */
-  gap: 1.5rem;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
 }
 
 .portfolio-item-modern {
   position: relative;
   overflow: hidden;
-  border-radius: 4px;
   cursor: pointer;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  transition: box-shadow 0.4s ease;
+  aspect-ratio: 3 / 4;
+  background-color: var(--color-light-gray);
 }
 
 .portfolio-item-modern:hover {
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.15);
+  /* pas de box-shadow pour garder la grille serrée */
 }
 
-/* Gère les images qui prennent deux colonnes */
+/* Suppression du span-2 — toutes les images sont uniformes */
 .portfolio-item-modern.span-2 {
-  grid-column: span 2;
+  grid-column: span 1;
 }
 
-/* Sur mobile, on remet tout sur une colonne */
+/* Sur tablette : 3 colonnes */
+@media (max-width: 1024px) {
+  .portfolio-grid-modern {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Sur mobile : 2 colonnes */
 @media (max-width: 600px) {
-  .portfolio-item-modern.span-2 {
-    grid-column: span 1;
+  .portfolio-grid-modern {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3px;
   }
 }
 
