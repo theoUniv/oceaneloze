@@ -776,100 +776,149 @@ section {
   color: var(--color-white);
 }
 
-/* --- Avis (Version Moderne avec Avatars) --- */
-#avis {
+/* ============================================
+   AVIS — Design Masonry Grid v2
+   ============================================ */
+
+.avis-section-modern {
   background-color: var(--color-off-white);
-  padding: 80px 0;
-  /* On enlève le padding horizontal de la section */
+  padding: 100px 5%;
 }
 
-#avis h2 {
-  padding: 0 5%;
-  /* On remet le padding sur le titre uniquement */
-}
-
-.testimonial-slider {
-  max-width: 800px;
-  margin: 2rem auto 0 auto;
-  position: relative;
-  overflow: hidden;
-  /* Très important : cache les autres slides */
-}
-
-.testimonial-track {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-}
-
-.testimonial-card {
-  flex: 0 0 100%;
-  /* Chaque carte prend 100% de la largeur du conteneur */
-  box-sizing: border-box;
-  padding: 2rem 3rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.avis-header {
   text-align: center;
+  max-width: 600px;
+  margin: 0 auto 4rem auto;
 }
 
-.testimonial-avatar {
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 1.5rem;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+.avis-eyebrow {
+  display: block;
+  font-size: 0.72rem;
+  font-family: var(--font-text);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-gray);
+  margin-bottom: 1rem;
 }
 
-.testimonial-content blockquote {
-  font-family: var(--font-title);
-  font-style: italic;
-  font-size: 1.4rem;
-  line-height: 1.6;
-  color: var(--color-dark);
-  margin: 0;
-  max-width: 650px;
-  /* Pour une meilleure lisibilité */
+.avis-header h2 {
+  margin: 0 0 1rem 0;
+  padding: 0;
 }
 
-.testimonial-author-info {
-  margin-top: 1.5rem;
-}
-
-.author-name {
-  font-weight: bold;
+.avis-subtitle {
+  color: var(--color-gray);
   font-size: 1.1rem;
   margin: 0;
 }
 
-.service-type {
-  font-size: 0.9rem;
-  color: var(--color-gray);
-  margin: 0.2rem 0 0 0;
+/* Grille Masonry avec colonnes CSS */
+.avis-masonry-grid {
+  column-count: 3;
+  column-gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-/* Points de navigation */
-.pagination-dots {
+.avis-card-modern {
+  break-inside: avoid;
+  background: var(--color-white);
+  border-radius: 12px;
+  padding: 2.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.avis-card-modern:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+}
+
+.avis-card-header {
   display: flex;
-  justify-content: center;
-  margin-top: 1rem;
+  align-items: center;
+  gap: 1.2rem;
+  margin-bottom: 1.5rem;
 }
 
-.dot {
-  width: 10px;
-  height: 10px;
+.avis-avatar-modern {
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
-  background-color: var(--color-light-gray);
-  border: none;
-  margin: 0 5px;
-  cursor: pointer;
-  transition: background-color 0.3s, transform 0.3s;
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.dot.active {
-  background-color: var(--color-dark);
-  transform: scale(1.2);
+.avis-author-info {
+  display: flex;
+  flex-direction: column;
 }
+
+.avis-author-name {
+  font-family: var(--font-title);
+  font-size: 1.2rem;
+  margin: 0 0 0.3rem 0;
+  color: var(--color-dark);
+}
+
+.avis-service-tag {
+  font-size: 0.75rem;
+  font-family: var(--font-text);
+  color: var(--color-gray);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: var(--color-off-white);
+  padding: 4px 10px;
+  border-radius: 20px;
+  display: inline-block;
+  width: fit-content;
+}
+
+.avis-card-body {
+  position: relative;
+}
+
+.avis-quote-mark {
+  position: absolute;
+  top: -15px;
+  left: -10px;
+  font-family: var(--font-title);
+  font-size: 4rem;
+  color: var(--color-light-gray);
+  opacity: 0.5;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.avis-quote-text {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-text);
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--color-dark);
+  margin: 0;
+  font-style: italic;
+}
+
+/* Responsive Masonry */
+@media (max-width: 1024px) {
+  .avis-masonry-grid {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 768px) {
+  .avis-masonry-grid {
+    column-count: 1;
+  }
+  .avis-section-modern {
+    padding: 60px 5%;
+  }
+}
+
 
 /* --- Contact (Refonte Moderne "Intégrée") --- */
 .contact-section-wrapper {

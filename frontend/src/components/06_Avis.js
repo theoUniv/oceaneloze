@@ -16,7 +16,7 @@ const testimonials = [
     },
     {
         quote: "Océane a su me mettre en avant dans une très belle série de photos dans un musée. Elle a su me mettre à l’aise et s’adapter à mes demandes facilement. Le résultat était épatant. Je vous recommande d’y aller les yeux fermés. 😊",
-        author: "Vic",
+        author: "Victoire",
         service: "Séance Extérieur",
         avatar: "/images/Vic.webp"
     },
@@ -35,49 +35,31 @@ const testimonials = [
 ];
 
 const Avis = () => {
-    const [currentIndex, setCurrentIndex] = useState(0);
-
-    // Le carrousel automatique continue de fonctionner
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
-        }, 15000); // On augmente un peu le temps pour permettre la lecture
-
-        return () => clearInterval(interval);
-    }, []);
-
     return (
-        <section id="avis">
-            <h2 class="adelia">Ils m'ont fait confiance</h2>
-            <div className="testimonial-slider">
-                {/* Le conteneur qui va bouger */}
-                <div className="testimonial-track" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
-                    {testimonials.map((testimonial, index) => (
-                        <div className="testimonial-card" key={index}>
-                            <img src={testimonial.avatar} alt={`Avatar de ${testimonial.author}`} className="testimonial-avatar" />
-                            <div className="testimonial-content">
-                                <blockquote>{testimonial.quote}</blockquote>
-                                <div className="testimonial-author-info">
-                                    <p className="author-name">{testimonial.author}</p>
-                                    <p className="service-type">{testimonial.service}</p>
-                                </div>
+        <section id="avis" className="avis-section-modern">
+            <div className="avis-header">
+                <span className="avis-eyebrow">Témoignages</span>
+                <h2 className="adelia">Ils m'ont fait confiance</h2>
+                <p className="avis-subtitle">Ce que mes clients disent de leur expérience.</p>
+            </div>
+            
+            <div className="avis-masonry-grid">
+                {testimonials.map((testimonial, index) => (
+                    <div className="avis-card-modern" key={index}>
+                        <div className="avis-card-header">
+                            <img src={testimonial.avatar} alt={`Avatar de ${testimonial.author}`} className="avis-avatar-modern" loading="lazy" />
+                            <div className="avis-author-info">
+                                <h3 className="avis-author-name">{testimonial.author}</h3>
+                                <span className="avis-service-tag">{testimonial.service}</span>
                             </div>
                         </div>
-                    ))}
-                </div>
-
-                {/* Points de navigation */}
-                <div className="pagination-dots">
-                    {testimonials.map((_, index) => (
-                        <button
-                            key={index}
-                            className={`dot ${currentIndex === index ? 'active' : ''}`}
-                            onClick={() => setCurrentIndex(index)}
-                        ></button>
-                    ))}
-                </div>
+                        <div className="avis-card-body">
+                            <span className="avis-quote-mark">"</span>
+                            <p className="avis-quote-text">{testimonial.quote}</p>
+                        </div>
+                    </div>
+                ))}
             </div>
-
         </section>
     );
 };
