@@ -30,11 +30,6 @@ const APropos = () => {
                     className="apropos-img-full"
                     loading="lazy"
                 />
-                {/* Badge flottant */}
-                <div className="apropos-badge">
-                    <span className="apropos-badge-number">∞</span>
-                    <span className="apropos-badge-label">Instants capturés</span>
-                </div>
             </div>
 
             {/* --- Colonne texte --- */}
