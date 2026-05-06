@@ -20,7 +20,7 @@ function authMiddleware(req, res, next) {
         req.user = decoded; // { userId, role, etc. }
         next();
     } catch (err) {
-        res.status(400).json({ message: 'Token invalide.' });
+        res.status(401).json({ message: 'Token invalide ou expiré. Veuillez vous reconnecter.' });
     }
 }
 
