@@ -175,7 +175,6 @@ app.get('/api/images/thumbnail', async (req, res) => {
 
 // Upload d'image avec Multer
 const multer = require('multer');
-const path = require('path');
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         const uploadPath = path.join(__dirname, '../frontend/public/images');
