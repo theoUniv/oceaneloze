@@ -190,17 +190,25 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage: storage });
 
-app.post('/api/upload', authMiddleware, upload.single('image'), (req, res) => {
-    try {
-        if (!req.file) {
-            return res.status(400).json({ message: 'Aucun fichier uploadé' });
+const uploadSingle = upload.single('image');
+
+app.post('/api/upload', authMiddleware, (req, res) => {
+    uploadSingle(req, res, function (err) {
+        if (err) {
+            console.error('Erreur Multer:', err);
+            return res.status(500).json({ message: 'Erreur lors de la sauvegarde du fichier: ' + err.message });
         }
-        // Renvoie le chemin public pour le frontend
-        res.json({ imagePath: `/images/${req.file.filename}` });
-    } catch (err) {
-        console.error('Erreur upload:', err);
-        res.status(500).json({ message: 'Erreur Serveur' });
-    }
+        try {
+            if (!req.file) {
+                return res.status(400).json({ message: 'Aucun fichier uploadé' });
+            }
+            // Renvoie le chemin public pour le frontend
+            res.json({ imagePath: `/images/${req.file.filename}` });
+        } catch (err) {
+            console.error('Erreur upload:', err);
+            res.status(500).json({ message: 'Erreur Serveur' });
+        }
+    });
 });
 
 // Lancement du serveur
