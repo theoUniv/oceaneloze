@@ -18,6 +18,7 @@ const AdminDashboard = () => {
     const [newDescription, setNewDescription] = useState(''); // cols (1/2) pour image, text pour quote
     const [newPrice, setNewPrice] = useState('');
     const [newFeatures, setNewFeatures] = useState(''); // Liste séparée par des virgules ou retours à la ligne
+    const [newOrder, setNewOrder] = useState(null); // Gérer l'ordre original lors de la modification
 
     useEffect(() => {
         const token = localStorage.getItem('adminToken');
@@ -63,6 +64,7 @@ const AdminDashboard = () => {
         setNewPrice('');
         setNewFeatures('');
         setNewType('image');
+        setNewOrder(null);
     };
 
     const handleEditClick = (card) => {
@@ -73,6 +75,7 @@ const AdminDashboard = () => {
         setNewDescription(card.description || '');
         setNewPrice(card.price || '');
         setNewFeatures(card.features ? JSON.parse(card.features).join('\n') : '');
+        setNewOrder(card.order); // Conserver l'ordre original
         // Scroll vers le formulaire
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
@@ -123,7 +126,7 @@ const AdminDashboard = () => {
             imagePath: newImage,
             price: newPrice,
             features: formattedFeatures,
-            order: cards.length + 1
+            order: editingId && newOrder !== null ? newOrder : cards.length + 1 // Conserve l'ordre si on édite, sinon met à la fin
         };
 
         try {
@@ -244,7 +247,7 @@ const AdminDashboard = () => {
                             {cards.filter(c => c.category === activeTab).map((c) => (
                                 <div key={c.id} style={{ background: '#fff', borderRadius: '8px', overflow: 'hidden', boxShadow: '0 2px 10px rgba(0,0,0,0.1)' }}>
                                     {c.type !== 'quote' && (
-                                        <img src={c.imagePath && c.imagePath.startsWith('http') ? c.imagePath : (c.imagePath || '')} alt={c.title} style={{ width: '100%', height: '200px', objectFit: 'cover' }} />
+                                        <img src={c.imagePath && c.imagePath.startsWith('http') ? c.imagePath : `${process.env.REACT_APP_API_URL}${c.imagePath || ''}`} alt={c.title} style={{ width: '100%', height: '200px', objectFit: 'cover' }} />
                                     )}
                                     <div style={{ padding: '15px' }}>
                                         {c.type === 'quote' ? (

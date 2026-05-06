@@ -12,11 +12,16 @@ const authMiddleware = require('./middleware/authMiddleware');
 const contactRoutes = require('./routes/contact');
 const authRoutes = require('./routes/auth');
 
+const path = require('path');
+
 const app = express();
 
 // Middleware
 app.use(cors());
 app.use(bodyParser.json());
+
+// Servir les images de manière statique (résout le problème des 404 en prod après un upload)
+app.use('/images', express.static(path.join(__dirname, '../frontend/public/images')));
 
 // Synchronisation base de données locale (SQLite)
 sequelize.sync({ alter: true }) // Met à jour la structure sans supprimer les données existantes

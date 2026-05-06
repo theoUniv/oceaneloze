@@ -59,7 +59,7 @@ const Portfolio = () => {
                 <div className="lightbox-overlay" onClick={closeLightbox}>
                     <button className="lightbox-close" onClick={closeLightbox}>&times;</button>
                     <img
-                        src={selectedImage}
+                        src={selectedImage && selectedImage.startsWith('http') ? selectedImage : `${process.env.REACT_APP_API_URL}${selectedImage || ''}`}
                         alt="Vue agrandie"
                         className="lightbox-image"
                         onClick={(e) => e.stopPropagation()} // Empêche la fermeture si on clique sur l'image
