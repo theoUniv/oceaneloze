@@ -9,6 +9,12 @@ const testimonials = [
         avatar: "/images/maelle.webp"
     },
     {
+        quote: "Un énorme coup de cœur pour cette expérience avec elle. J’ai adoré shooter avec Océane, elle est tellement douce, bienveillante et passionnée.Elle sait vraiment mettre à l’aise et créer une ambiance naturelle pendant le shooting, on oublie presque l’objectif et le résultat est juste... incroyable ! On sent tout l’amour qu’elle met dans son travail et ça se ressent énormément dans ses images, Je recommande à 1000% ",
+        author: "Juline",
+        service: "Exterieur",
+        avatar: "/images/juline.webp"
+    },
+    {
         quote: "J’ai eu la chance de faire plusieurs shootings avec Océane et à chaque fois l’expérience a été incroyable. Elle est non seulement très professionnelle, mais aussi passionnée et investie dans son travail. Elle sait mettre à l’aise, créer une ambiance agréable et bienveillante, ce qui permet de se sentir en confiance devant l’objectif. Le résultat est toujours magnifique : des photos de qualité qui reflètent parfaitement l’instant et l’émotion. Je la recommande les yeux fermés !",
         author: "Mathilde",
         service: "Portrait Studio",
@@ -42,7 +48,7 @@ const Avis = () => {
                 <h2 className="adelia">Ils m'ont fait confiance</h2>
                 <p className="avis-subtitle">Ce que mes clients disent de leur expérience.</p>
             </div>
-            
+
             <div className="avis-masonry-grid">
                 {testimonials.map((testimonial, index) => (
                     <div className="avis-card-modern" key={index}>

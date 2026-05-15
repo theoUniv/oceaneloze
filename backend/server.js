@@ -48,20 +48,20 @@ sequelize.sync({ alter: true }) // Met à jour la structure sans supprimer les d
             
             // Séeding Portfolio
             const portfolioItems = [
-                { category: 'portfolio', type: 'image', imagePath: '/images/portfolio-1.webp', title: 'Douce Rêverie', description: '1', order: 1 },
-                { category: 'portfolio', type: 'image', imagePath: '/images/portfolio-2.webp', title: 'Chrome & Caractère', order: 2 },
+                { category: 'portfolio', type: 'image', imagePath: '/images/1.webp', title: 'Douce Rêverie', description: '1', order: 1 },
+                { category: 'portfolio', type: 'image', imagePath: '/images/2.webp', title: 'Chrome & Caractère', order: 2 },
                 { category: 'portfolio', type: 'quote', description: "Etre soi c'est déjà magnifique.", order: 3 },
-                { category: 'portfolio', type: 'image', imagePath: '/images/portfolio-3.webp', title: "Palais d'Été", order: 4 },
-                { category: 'portfolio', type: 'image', imagePath: '/images/portfolio-4.webp', title: 'Urbain & Sauvage', description: '1', order: 5 },
-                { category: 'portfolio', type: 'image', imagePath: '/images/portfolio-5.webp', title: 'Reflets Mystiques', order: 6 },
-                { category: 'portfolio', type: 'image', imagePath: '/images/portfolio-6.webp', title: 'Pose Intemporelle', order: 7 },
+                { category: 'portfolio', type: 'image', imagePath: '/images/3.webp', title: "Palais d'Été", order: 4 },
+                { category: 'portfolio', type: 'image', imagePath: '/images/4.webp', title: 'Urbain & Sauvage', description: '1', order: 5 },
+                { category: 'portfolio', type: 'image', imagePath: '/images/portfolio-6.webp', title: 'Pose Intemporelle', order: 6 },
+                { category: 'portfolio', type: 'image', imagePath: '/images/6.webp', title: 'Reflets Mystiques', order: 7 },
                 { category: 'portfolio', type: 'quote', description: "Capturer l'âme, pas seulement le sourire.", order: 8 },
-                { category: 'portfolio', type: 'image', imagePath: '/images/portfolio-7.webp', title: 'Reflets Mystiques', order: 9 },
-                { category: 'portfolio', type: 'image', imagePath: '/images/portfolio-8.webp', title: 'Pose Intemporelle', order: 10 },
-                { category: 'portfolio', type: 'image', imagePath: '/images/Vic.webp', title: 'Vic', order: 11 },
-                { category: 'portfolio', type: 'image', imagePath: '/images/Victoria.webp', title: 'Victoria', order: 12 },
-                { category: 'portfolio', type: 'image', imagePath: '/images/miss.webp', title: 'Miss', order: 13 },
-                { category: 'portfolio', type: 'image', imagePath: '/images/bébé1.webp', title: 'Bébé', order: 14 },
+                { category: 'portfolio', type: 'image', imagePath: '/images/7.webp', title: 'Lumière Dorée', order: 9 },
+                { category: 'portfolio', type: 'image', imagePath: '/images/8.webp', title: 'Élégance Naturelle', order: 10 },
+                { category: 'portfolio', type: 'image', imagePath: '/images/9.webp', title: 'Instant Suspendu', order: 11 },
+                { category: 'portfolio', type: 'image', imagePath: '/images/10.webp', title: 'Grâce & Mouvement', order: 12 },
+                { category: 'portfolio', type: 'image', imagePath: '/images/11.webp', title: 'Portrait Intimiste', order: 13 },
+                { category: 'portfolio', type: 'image', imagePath: '/images/12.webp', title: 'Harmonie', order: 14 },
             ];
             
             // Séeding Prestations
