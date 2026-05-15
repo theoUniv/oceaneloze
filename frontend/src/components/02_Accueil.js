@@ -84,7 +84,7 @@ const Accueil = () => {
             </div>
 
             {/* Copyright en bas */}
-            <p className="accueil-copyright">© 2025 Océane Loze. Tous droits réservés.</p>
+            <p className="accueil-copyright">© 2026 Océane Loze. Tous droits réservés.</p>
         </section>
     );
 };
