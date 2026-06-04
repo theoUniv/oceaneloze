@@ -25,7 +25,7 @@ const APropos = () => {
             {/* --- Colonne image : pleine hauteur, bord à bord --- */}
             <div className="apropos-img-col">
                 <img
-                    src="/images/oce.webp"
+                    src="/images/nanane.webp"
                     alt="Photographe Océane Loze"
                     className="apropos-img-full"
                     loading="lazy"
