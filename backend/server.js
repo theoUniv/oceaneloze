@@ -24,6 +24,17 @@ app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 // Servir les images de manière statique (résout le problème des 404 en prod après un upload)
 app.use('/images', express.static(path.join(__dirname, '../frontend/public/images')));
 
+// Servir directement le PDF du portfolio à la racine: /portfolio.pdf
+app.get('/portfolio.pdf', (req, res) => {
+    const pdfPath = path.join(__dirname, '../frontend/public/images/portfolio.pdf');
+    res.sendFile(pdfPath, (err) => {
+        if (err) {
+            console.error('Erreur en envoyant portfolio.pdf:', err);
+            return res.status(404).send('Fichier non trouvé');
+        }
+    });
+});
+
 // Synchronisation base de données locale (SQLite)
 sequelize.sync({ alter: true }) // Met à jour la structure sans supprimer les données existantes
     .then(async () => {
