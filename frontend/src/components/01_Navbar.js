@@ -35,8 +35,26 @@ const Navbar = () => {
     return (
         <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
             <a href="#accueil" className="nav-logo">
-                <img src="/images/logoblanc.png" alt="OL Logo" className="nav-logo-icon" />
-                <img src="/images/texteblanc.png" alt="Océane Loze" className="nav-logo-text" />
+                <img
+                    src="/images/opt/logoblanc-96.webp"
+                    srcSet="/images/opt/logoblanc-96.webp 96w, /images/opt/logoblanc-192.webp 192w"
+                    sizes="46px"
+                    alt="OL Logo"
+                    className="nav-logo-icon"
+                    width="46"
+                    height="40"
+                    decoding="async"
+                />
+                <img
+                    src="/images/opt/texteblanc-192.webp"
+                    srcSet="/images/opt/texteblanc-192.webp 192w, /images/opt/texteblanc-384.webp 384w"
+                    sizes="181px"
+                    alt="Océane Loze"
+                    className="nav-logo-text"
+                    width="181"
+                    height="30"
+                    decoding="async"
+                />
             </a>
             <button className={`nav-toggle ${isOpen ? 'active' : ''}`} onClick={() => setIsOpen(!isOpen)}>
                 ☰

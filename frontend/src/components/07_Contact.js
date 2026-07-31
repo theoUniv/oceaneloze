@@ -50,7 +50,8 @@ const Contact = () => {
               style={{
                   position: 'absolute',
                   top: '-50px', left: '-50px', right: '-50px', bottom: '-50px',
-                  backgroundImage: "url('/images/animaux.webp')",
+                  // Image floutée à 25px : une petite déclinaison suffit (17 Ko au lieu de 724 Ko)
+                  backgroundImage: "url('/images/opt/animaux-640.webp')",
                   backgroundSize: 'cover',
                   backgroundPosition: 'center',
                   filter: 'blur(25px)',

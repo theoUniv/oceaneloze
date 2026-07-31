@@ -7,9 +7,30 @@
     <meta name="theme-color" content="#000000" />
     <meta
       name="description"
-      content="Web site created using create-react-app"
+      content="Océane Loze, photographe en Île-de-France : portraits studio et extérieur, famille, mariage, animalier et séances auto/moto."
     />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+
+    <!-- Polices Google : déclarées ici (et non via @import dans le CSS) pour que
+         le navigateur puisse les découvrir et les télécharger immédiatement,
+         sans attendre le téléchargement puis l'analyse de la feuille de style. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+    />
+
+    <!-- Première image du carrousel : c'est le plus gros élément affiché à
+         l'ouverture (LCP), on la demande sans attendre l'exécution du JavaScript. -->
+    <link
+      rel="preload"
+      as="image"
+      href="%PUBLIC_URL%/images/opt/5caroussel-1280.webp"
+      imagesrcset="%PUBLIC_URL%/images/opt/5caroussel-768.webp 768w, %PUBLIC_URL%/images/opt/5caroussel-1280.webp 1280w, %PUBLIC_URL%/images/opt/5caroussel-1920.webp 1920w"
+      imagesizes="100vw"
+      fetchpriority="high"
+    />
     <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/

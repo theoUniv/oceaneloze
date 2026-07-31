@@ -22,7 +22,17 @@ app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 
 // Servir les images de manière statique (résout le problème des 404 en prod après un upload)
-app.use('/images', express.static(path.join(__dirname, '../frontend/public/images')));
+// maxAge : évite une requête de revalidation par image à chaque visite.
+// Les déclinaisons de /images/opt sont générées avec un nom stable et ne changent
+// pas sans regénération, on peut donc les mettre en cache longtemps.
+app.use('/images', express.static(path.join(__dirname, '../frontend/public/images'), {
+    maxAge: '30d',
+    setHeaders: (res, filePath) => {
+        if (filePath.includes(`${path.sep}opt${path.sep}`)) {
+            res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
+        }
+    },
+}));
 
 // Servir directement le PDF du portfolio à la racine: /portfolio.pdf
 app.get('/portfolio.pdf', (req, res) => {
@@ -154,31 +164,70 @@ app.delete('/api/portfolio/cards/:id', authMiddleware, async (req, res) => {
     }
 });
 
+// --- Redimensionnement d'images avec cache sur disque ---
+// Sans cache, chaque affichage du portfolio relançait un décodage sharp sur des
+// originaux de plusieurs Mo (une dizaine en parallèle) : très lent et très coûteux.
+// Ici chaque variante n'est calculée qu'une seule fois, puis servie depuis le disque.
+const sharp = require('sharp');
+const fs = require('fs');
+const crypto = require('crypto');
+
+const IMAGES_ROOT = path.join(__dirname, '../frontend/public/images');
+const THUMB_CACHE_DIR = path.join(__dirname, '.cache/thumbnails');
+fs.mkdirSync(THUMB_CACHE_DIR, { recursive: true });
+
+// Largeurs autorisées : évite qu'on puisse faire générer une infinité de variantes
+const ALLOWED_WIDTHS = [200, 400, 600, 1000, 1600];
+
 app.get('/api/images/thumbnail', async (req, res) => {
     try {
         const imagePath = req.query.path;
         if (!imagePath) return res.status(400).send('Path is required');
-        
-        const sharp = require('sharp');
-        const path = require('path');
-        const fs = require('fs');
-        
-        // Résoudre le vrai chemin de l'image (frontend/public + imagePath)
-        const fullPath = path.join(__dirname, '../frontend/public', imagePath);
-        
-        if (!fs.existsSync(fullPath)) {
+
+        const requested = parseInt(req.query.w, 10) || 600;
+        const width = ALLOWED_WIDTHS.includes(requested) ? requested : 600;
+
+        // Résoudre le vrai chemin de l'image et vérifier qu'on reste bien
+        // dans le dossier des images (protection contre les chemins type ../../)
+        const fullPath = path.resolve(path.join(__dirname, '../frontend/public', imagePath));
+        if (!fullPath.startsWith(IMAGES_ROOT + path.sep)) {
+            return res.status(400).send('Chemin invalide');
+        }
+
+        let stat;
+        try {
+            stat = fs.statSync(fullPath);
+        } catch (e) {
             return res.status(404).send('Image non trouvée');
         }
 
-        // Redimensionnement basse résolution (ex: 600px de large max) et compression améliorée
-        const buffer = await sharp(fullPath)
-            .resize({ width: 600, withoutEnlargement: true })
-            .webp({ quality: 80 })
-            .toBuffer();
+        // La clé de cache inclut la date de modification : remplacer une image
+        // (ré-upload avec le même nom) régénère automatiquement les variantes.
+        const key = crypto
+            .createHash('sha1')
+            .update(`${fullPath}|${stat.mtimeMs}|${width}`)
+            .digest('hex');
+        const cachedPath = path.join(THUMB_CACHE_DIR, `${key}.webp`);
+
+        if (!fs.existsSync(cachedPath)) {
+            const tmpPath = `${cachedPath}.${process.pid}.tmp`;
+            await sharp(fullPath)
+                .rotate() // respecte l'orientation EXIF
+                .resize({ width, withoutEnlargement: true })
+                .webp({ quality: 80 })
+                .toFile(tmpPath);
+            fs.renameSync(tmpPath, cachedPath); // écriture atomique
+        }
 
         res.set('Content-Type', 'image/webp');
-        res.set('Cache-Control', 'public, max-age=31536000'); // Cache for 1 year
-        res.send(buffer);
+        res.set('Cache-Control', 'public, max-age=31536000, immutable');
+        res.set('ETag', `"${key}"`);
+
+        if (req.headers['if-none-match'] === `"${key}"`) {
+            return res.status(304).end();
+        }
+
+        res.sendFile(cachedPath);
     } catch (err) {
         console.error('Erreur redimensionnement:', err);
         res.status(500).send('Erreur lors du traitement de l\'image');

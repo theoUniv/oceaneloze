@@ -1,5 +1,7 @@
 /* --- Polices et Variables Globales --- */
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+/* Les polices Google sont chargées depuis public/index.html (balise <link>) :
+   un @import ici obligeait le navigateur à télécharger puis analyser ce fichier
+   CSS avant même de découvrir l'existence des polices. */
 
 :root {
   --font-title: 'Cormorant Garamond', serif;
@@ -18,11 +20,15 @@
   --color-cream: #f5f5f5;
 }
 
+/* font-display: swap -> le texte s'affiche tout de suite avec une police système
+   puis bascule sur la police définitive, au lieu de rester invisible pendant
+   le téléchargement (jusqu'à 3 s sur une connexion mobile). */
 @font-face {
   font-family: 'Meldyte';
   src: url('../public/fonts/Meldyte.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -30,6 +36,7 @@
   src: url('../public/fonts/adelia.ttf') format('opentype');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -37,6 +44,7 @@
   src: url('../public/fonts/Bacalisties.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 .meldyte {

@@ -32,10 +32,11 @@ const Prestations = () => {
                 {services.map((service, index) => (
                     <div className="prestation-card-modern" key={service.id || index}>
                         <div className="prestation-image-container">
-                            <img 
-                                src={service.imagePath?.startsWith('http') ? service.imagePath : `${process.env.REACT_APP_API_URL}/api/images/thumbnail?path=${encodeURIComponent(service.imagePath)}`} 
-                                alt={` pour ${service.title}`} 
-                                loading="lazy" 
+                            <img
+                                src={service.imagePath?.startsWith('http') ? service.imagePath : `${process.env.REACT_APP_API_URL}/api/images/thumbnail?path=${encodeURIComponent(service.imagePath)}&w=600`}
+                                alt={` pour ${service.title}`}
+                                loading="lazy"
+                                decoding="async"
                             />
                         </div>
                         <div className="prestation-content">

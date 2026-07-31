@@ -25,10 +25,15 @@ const APropos = () => {
             {/* --- Colonne image : pleine hauteur, bord à bord --- */}
             <div className="apropos-img-col">
                 <img
-                    src="/images/nanane.webp"
+                    src="/images/opt/nanane-800.webp"
+                    srcSet="/images/opt/nanane-480.webp 480w, /images/opt/nanane-800.webp 800w, /images/opt/nanane-1280.webp 1280w"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
                     alt="Photographe Océane Loze"
                     className="apropos-img-full"
+                    width="800"
+                    height="1200"
                     loading="lazy"
+                    decoding="async"
                 />
             </div>
 
@@ -64,10 +69,15 @@ const APropos = () => {
 
                 {/* --- Signature --- */}
                 <img
-                    src="/images/signature.webp"
+                    src="/images/opt/signature-220.webp"
+                    srcSet="/images/opt/signature-220.webp 220w, /images/opt/signature-440.webp 440w"
+                    sizes="220px"
                     alt="Signature d'Océane Loze"
                     className="apropos-signature"
+                    width="220"
+                    height="147"
                     loading="lazy"
+                    decoding="async"
                 />
             </div>
         </section>
