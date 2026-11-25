@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { LogOut, Image, LayoutList, Mail, Plus, Trash, Edit2, X } from 'lucide-react';
@@ -19,6 +19,7 @@ const AdminDashboard = () => {
     const [newPrice, setNewPrice] = useState('');
     const [newFeatures, setNewFeatures] = useState(''); // Liste séparée par des virgules ou retours à la ligne
     const [newOrder, setNewOrder] = useState(null); // Gérer l'ordre original lors de la modification
+    const formRef = useRef(null);
 
     useEffect(() => {
         const token = localStorage.getItem('adminToken');
@@ -56,6 +57,15 @@ const AdminDashboard = () => {
         navigate('/');
     };
 
+    // Le token expire au bout de 24h : on renvoie vers la connexion au lieu d'une erreur muette
+    const handleSessionExpired = (err) => {
+        if (err.response?.status !== 401) return false;
+        alert("Votre session a expiré, merci de vous reconnecter.");
+        localStorage.removeItem('adminToken');
+        navigate('/login');
+        return true;
+    };
+
     const resetForm = () => {
         setEditingId(null);
         setNewTitle('');
@@ -76,8 +86,8 @@ const AdminDashboard = () => {
         setNewPrice(card.price || '');
         setNewFeatures(card.features ? JSON.parse(card.features).join('\n') : '');
         setNewOrder(card.order); // Conserver l'ordre original
-        // Scroll vers le formulaire
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        // Scroll vers le formulaire (c'est le panneau de droite qui défile, pas la fenêtre)
+        formRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     };
 
     const handleImageUpload = async (e) => {
@@ -94,6 +104,7 @@ const AdminDashboard = () => {
             setNewImage(res.data.imagePath); // Ex: /images/upload_123.jpg
         } catch (err) {
             console.error(err);
+            if (handleSessionExpired(err)) return;
             alert("Erreur lors de l'upload de l'image");
         }
     };
@@ -104,6 +115,7 @@ const AdminDashboard = () => {
             await axios.delete(`${process.env.REACT_APP_API_URL}/api/portfolio/cards/${id}`);
             fetchCards();
         } catch (err) {
+            if (handleSessionExpired(err)) return;
             alert("Erreur lors de la suppression");
         }
     };
@@ -138,6 +150,7 @@ const AdminDashboard = () => {
             resetForm();
             fetchCards();
         } catch (err) {
+            if (handleSessionExpired(err)) return;
             alert("Erreur lors de la sauvegarde");
         }
     };
@@ -180,7 +193,7 @@ const AdminDashboard = () => {
                     <div>
                         <h2 style={titleStyle}>Gérer {activeTab === 'portfolio' ? 'le Portfolio' : 'les Prestations'}</h2>
 
-                        <form onSubmit={handleSubmitCard} style={{ background: '#fff', padding: '20px', borderRadius: '8px', marginBottom: '30px', display: 'flex', flexDirection: 'column', gap: '15px', boxShadow: '0 2px 5px rgba(0,0,0,0.05)', position: 'relative' }}>
+                        <form ref={formRef} onSubmit={handleSubmitCard} style={{ background: '#fff', padding: '20px', borderRadius: '8px', marginBottom: '30px', display: 'flex', flexDirection: 'column', gap: '15px', boxShadow: '0 2px 5px rgba(0,0,0,0.05)', position: 'relative' }}>
                             {editingId && (
                                 <div style={{ position: 'absolute', top: '10px', right: '10px', background: '#f39c12', color: '#fff', padding: '5px 10px', borderRadius: '5px', fontSize: '12px', fontWeight: 'bold' }}>
                                     Mode Édition
